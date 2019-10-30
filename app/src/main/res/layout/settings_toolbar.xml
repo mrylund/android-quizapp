@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#86AAEC"
+    android:elevation="4dp">
+
+    <ImageView
+        android:id="@+id/settings_toolbar_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="left"
+        android:src="@drawable/back_button2"
+        />
+
+    <TextView
+        android:id="@+id/settings_toolbar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:fontFamily="@font/patrick_hand"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        />
+
+
+</androidx.appcompat.widget.Toolbar>
