@@ -7,7 +7,7 @@
 
     <ImageView
         android:contentDescription="@string/back_btn_desc"
-        android:id="@+id/settings_toolbar_back"
+        android:id="@+id/profile_toolbar_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -15,10 +15,10 @@
         />
 
     <TextView
-        android:id="@+id/settings_toolbar_text"
+        android:id="@+id/profile_toolbar_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings_title"
+        android:text="@string/profile_title"
         android:fontFamily="@font/patrick_hand"
         android:textSize="30sp"
         android:textColor="#000000"
@@ -26,5 +26,15 @@
         android:layout_gravity="center"
         />
 
+    <ImageView
+        android:contentDescription="@string/settings_btn_desc"
+        android:id="@+id/profile_toolbar_settings"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="end"
+        android:src="@drawable/settings_icon"
+        android:layout_marginEnd="16dp"
+        android:onClick="settings"
+        />
 
 </androidx.appcompat.widget.Toolbar>

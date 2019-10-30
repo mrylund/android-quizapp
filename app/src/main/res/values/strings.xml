@@ -9,4 +9,9 @@
     <string name="signinhint2">Password</string>
     <string name="signin">Sign in</string>
     <string name="screenlabelsignin">sign in</string>
+    <string name="profile_title">My Profile</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_btn_desc">Settigngs button</string>
+    <string name="back_btn_desc">Back button</string>
+
 </resources>
