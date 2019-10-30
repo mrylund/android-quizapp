@@ -25,49 +25,50 @@
 17-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:9:9-54
 18        android:supportsRtl="true"
 18-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:11:9-40
-20        <activity android:name="com.example.quiz_selvtest.NoAccountAct" />
-20-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:12:9-59
-20-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:12:19-47
-21        <activity android:name="com.example.quiz_selvtest.RegisterAct" />
-21-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:13:9-49
-21-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:13:19-46
-22        <activity android:name="com.example.quiz_selvtest.NonStudentSigninAct" />
-22-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:14:9-57
-22-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:14:19-54
-23        <activity android:name="com.example.quiz_selvtest.CreatedQuizzesAct" />
-23-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:15:9-55
-23-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:15:19-52
-24        <activity android:name="com.example.quiz_selvtest.CreateQuizAct" />
-24-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:16:9-51
-24-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:16:19-48
-25        <activity android:name="com.example.quiz_selvtest.HomescreenAct" />
-25-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:17:9-51
-25-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:17:19-48
-26        <activity android:name="com.example.quiz_selvtest.StudentSigninAct" />
-26-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:18:9-54
-26-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:18:19-51
-27        <activity android:name="com.example.quiz_selvtest.SettingsAct" />
-27-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:19:9-49
-27-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:19:19-46
-28        <activity android:name="com.example.quiz_selvtest.ProfileAct" />
-28-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:20:9-48
-28-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:20:19-45
-29        <activity android:name="com.example.quiz_selvtest.StartScreenAct" >
-29-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:21:9-27:20
-29-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:21:19-49
-30            <intent-filter>
-30-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:22:13-26:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:23:17-69
-31-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:23:25-66
-32
-33                <category android:name="android.intent.category.LAUNCHER" />
-33-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:25:17-77
-33-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:25:27-74
-34            </intent-filter>
-35        </activity>
-36    </application>
-37
-38</manifest>
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:11:9-40
+21        <activity android:name="com.example.quiz_selvtest.NoAccountAct" />
+21-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:12:9-59
+21-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:12:19-47
+22        <activity android:name="com.example.quiz_selvtest.RegisterAct" />
+22-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:13:9-49
+22-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:13:19-46
+23        <activity android:name="com.example.quiz_selvtest.NonStudentSigninAct" />
+23-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:14:9-57
+23-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:14:19-54
+24        <activity android:name="com.example.quiz_selvtest.CreatedQuizzesAct" />
+24-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:15:9-55
+24-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:15:19-52
+25        <activity android:name="com.example.quiz_selvtest.CreateQuizAct" />
+25-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:16:9-51
+25-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:16:19-48
+26        <activity android:name="com.example.quiz_selvtest.HomescreenAct" />
+26-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:17:9-51
+26-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:17:19-48
+27        <activity android:name="com.example.quiz_selvtest.StudentSigninAct" />
+27-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:18:9-54
+27-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:18:19-51
+28        <activity android:name="com.example.quiz_selvtest.SettingsAct" />
+28-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:19:9-49
+28-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:19:19-46
+29        <activity android:name="com.example.quiz_selvtest.ProfileAct" />
+29-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:20:9-48
+29-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:20:19-45
+30        <activity android:name="com.example.quiz_selvtest.StartScreenAct" >
+30-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:21:9-27:20
+30-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:21:19-49
+31            <intent-filter>
+31-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:22:13-26:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:23:17-69
+32-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:23:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:25:17-77
+34-->/Users/rasmus/AndroidStudioProjects/android-quizapp/app/src/main/AndroidManifest.xml:25:27-74
+35            </intent-filter>
+36        </activity>
+37    </application>
+38
+39</manifest>

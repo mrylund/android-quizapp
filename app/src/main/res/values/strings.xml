@@ -3,4 +3,10 @@
     <string name="startscreenbutton1"><![CDATA[Students & Teachers]]></string>
     <string name="startscreenbutton2">Sign in</string>
     <string name="startscreenbutton3">Play without account</string>
+    <string name="noaccount">Don\'t have an account?</string>
+    <string name="registerbutton">Register now!</string>
+    <string name="signinhint1">Username / mail</string>
+    <string name="signinhint2">Password</string>
+    <string name="signin">Sign in</string>
+    <string name="screenlabelsignin">sign in</string>
 </resources>
