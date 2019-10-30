@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NonStudentSigninAct">
+    tools:context=".NonStudentSigninAct"
+    android:background="#D1DBED">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
