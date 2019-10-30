@@ -15,9 +15,6 @@ public class ProfileAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.profile_topbar);
-        TextView title = (TextView)findViewById(R.id.profile_toolbar_text);
-        title.setText("Profile");
         findViewById(R.id.profile_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,5 +27,13 @@ public class ProfileAct extends AppCompatActivity {
     public void settings(View view) {
         Intent intent = new Intent(this, SettingsAct.class);
         startActivity(intent);
+    }
+
+    public void logOut(View view) {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+        finish();
     }
 }

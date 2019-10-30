@@ -16,9 +16,6 @@ public class SettingsAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.settings_topbar);
-        TextView title = (TextView)findViewById(R.id.settings_toolbar_text);
-        title.setText("Settings");
         findViewById(R.id.settings_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

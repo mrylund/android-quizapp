@@ -13,5 +13,9 @@
     <string name="settings_title">Settings</string>
     <string name="settings_btn_desc">Settigngs button</string>
     <string name="back_btn_desc">Back button</string>
+    <string name="profile_name">Pingvinen</string>
+    <string name="btn_myquiz">My Quizzes</string>
+    <string name="btn_logout">Log Out</string>
+    <string name="profil_desc">ProfilBillede</string>
 
 </resources>

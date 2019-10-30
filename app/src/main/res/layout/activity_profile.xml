@@ -9,4 +9,8 @@
         android:id="@+id/profile_topbar"
         layout="@layout/profile_toolbar" />
 
+    <include
+        layout="@layout/profile_content"
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
