@@ -17,7 +17,7 @@
         <activity android:name=".HomescreenAct" />
         <activity android:name=".StudentSigninAct" />
         <activity android:name=".SettingsAct" />
-        <activity android:name=".ProfileAct" />
+        <activity android:name=".ProfileAct" android:exported="true" />
         <activity android:name=".StartScreenAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
