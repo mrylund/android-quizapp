@@ -18,14 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.quiz_selvtest.FragmentController" />
-        <activity android:name="com.example.quiz_selvtest.NoAccountAct" />
         <activity android:name="com.example.quiz_selvtest.Quiz_done" />
         <activity android:name="com.example.quiz_selvtest.Quiz_2" />
         <activity android:name="com.example.quiz_selvtest.NoAccountAct" />
         <activity android:name="com.example.quiz_selvtest.RegisterAct" />
         <activity android:name="com.example.quiz_selvtest.NonStudentSigninAct" />
+        <activity android:name="com.example.quiz_selvtest.CreatedQuizzesAct" />
         <activity android:name="com.example.quiz_selvtest.CreateQuizAct" />
+        <activity android:name="com.example.quiz_selvtest.HomescreenAct" />
         <activity android:name="com.example.quiz_selvtest.StudentSigninAct" />
         <activity android:name="com.example.quiz_selvtest.Quiz_1" />
         <activity android:name="com.example.quiz_selvtest.SettingsAct" />
