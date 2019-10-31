@@ -17,5 +17,9 @@
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
     <string name="profil_desc">ProfilBillede</string>
+    <string name="quizcode">Quiz Code</string>
+    <string name="join_quiz">Join Quiz</string>
+    <string name="join_title">Join a game</string>
+    <string name="quiz_logo">Logo</string>
 
 </resources>
