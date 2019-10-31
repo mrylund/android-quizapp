@@ -7,6 +7,34 @@
     android:background="#D1DBED"
     tools:context=".RegisterAct">
 
+    <ImageView
+        android:id="@+id/goBackBTN"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/back_btn_desc"
+        android:src="@drawable/back_button2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/registerMail"
+        app:layout_constraintEnd_toEndOf="@+id/registerMail"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/registerMail"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/quiz" />
+
     <Button
         android:id="@+id/registerButton"
         android:layout_width="match_parent"
@@ -101,20 +129,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/registerMail"
-        app:layout_constraintEnd_toEndOf="@+id/registerMail"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/registerMail"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/quiz" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
