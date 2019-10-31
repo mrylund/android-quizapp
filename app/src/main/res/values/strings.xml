@@ -17,8 +17,27 @@
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
     <string name="profil_desc">ProfilBillede</string>
+    <string name="registerHint1">e-mail</string>
+    <string name="registerHint2">username</string>
+    <string name="registerHint3">password</string>
+    <string name="registerHint4">repeat password</string>
+    <string name="registerBTN">Register</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="quizcode">Quiz Code</string>
+    <string name="join_quiz">Join Quiz</string>
+    <string name="join_title">Join a game</string>
+    <string name="quiz_logo">Logo</string>
+    <string name="quiz_ongoing_slogan">Being busy!</string>
+    <string name="q1_question">Hvilket udtryk er en tildeling? (assignment)</string>
+    <string name="q1_answer1">int a:</string>
+    <string name="q1_answer2">a = 2;</string>
+    <string name="q1_answer3">a == 2</string>
+    <string name="q1_answer4">a >= 2</string>
+    <string name="q2_question">Hvilken metode er ulovlig?</string>
+    <string name="q2_answer1">int sum() {return 0;}</string>
+    <string name="q2_answer2">int størreEnd (int a, int b) { return a>b; }</string>
+    <string name="q2_answer3">boolean størreEnd (int a, int b) { return a>b;}</string>
+    <string name="q2_answer4">int sum (int a, int b) { return a+b; }</string>
+    <string name="quiz_result">Du har gennemført quizzen, resultat kommer til at stå here i en senere iteration!</string>
+    <string name="quiz_end_button">Tilbage til start skærm</string>
 </resources>
