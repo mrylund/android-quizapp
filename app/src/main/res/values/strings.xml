@@ -43,4 +43,7 @@
     <string name="studentsigninhint1">Student mail</string>
     <string name="studentsigninhint2">Student password</string>
     <string name="hejscreenlabelsignin">student sign in</string>
+    <string name="createquizlabel">create your quiz</string>
+    <string name="enterUrl">enter url here</string>
+    <string name="help">Help</string>
 </resources>
