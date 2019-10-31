@@ -13,7 +13,6 @@
         <activity android:name=".NoAccountAct" />
         <activity android:name=".Quiz_done"></activity>
         <activity android:name=".Quiz_2" />
-        <activity android:name=".NoAccountAct" />
         <activity android:name=".RegisterAct" />
         <activity android:name=".NonStudentSigninAct" />
         <activity android:name=".CreateQuizAct" />
