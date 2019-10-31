@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoAccountAct"></activity>
+        <activity android:name=".Quiz_done"></activity>
+        <activity android:name=".Quiz_2" />
+        <activity android:name=".NoAccountAct" />
         <activity android:name=".RegisterAct" />
         <activity android:name=".NonStudentSigninAct" />
         <activity android:name=".CreatedQuizzesAct" />
         <activity android:name=".CreateQuizAct" />
         <activity android:name=".HomescreenAct" />
         <activity android:name=".StudentSigninAct" />
+        <activity android:name=".Quiz_1" />
         <activity android:name=".SettingsAct" />
         <activity android:name=".ProfileAct" />
         <activity android:name=".StartScreenAct">
