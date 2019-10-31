@@ -17,6 +17,12 @@
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
     <string name="profil_desc">ProfilBillede</string>
+    <string name="registerHint1">e-mail</string>
+    <string name="registerHint2">username</string>
+    <string name="registerHint3">password</string>
+    <string name="registerHint4">repeat password</string>
+    <string name="registerBTN">Register</string>
+
     <string name="quizcode">Quiz Code</string>
     <string name="join_quiz">Join Quiz</string>
     <string name="join_title">Join a game</string>
