@@ -11,7 +11,7 @@
     <string name="screenlabelsignin">sign in</string>
     <string name="profile_title">My Profile</string>
     <string name="settings_title">Settings</string>
-    <string name="settings_btn_desc">Settigngs button</string>
+    <string name="settings_btn_desc">Settings button</string>
     <string name="back_btn_desc">Back button</string>
     <string name="profile_name">Pingvinen</string>
     <string name="btn_myquiz">My Quizzes</string>
@@ -47,4 +47,5 @@
     <string name="enterUrl">enter url here</string>
     <string name="help">Help</string>
     <string name="createquizbtn">Create quiz</string>
+    <string name="createQuizTXT">create quiz</string>
 </resources>

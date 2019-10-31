@@ -15,7 +15,15 @@ public class StartScreenAct extends AppCompatActivity {
         setContentView(R.layout.activity_startscreen);
 
         Button button = findViewById(R.id.startscreenbutton2);
+        Button button2 = findViewById(R.id.button);
         TextView register = findViewById(R.id.registerTextView);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StartScreenAct.this, StudentSigninAct.class));
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
