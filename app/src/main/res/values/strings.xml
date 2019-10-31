@@ -42,5 +42,5 @@
     <string name="quiz_end_button">Tilbage til start skærm</string>
     <string name="studentsigninhint1">Student mail</string>
     <string name="studentsigninhint2">Student password</string>
-    <string name="hejscreenlabelsignin">Student sign in</string>
+    <string name="hejscreenlabelsignin">student sign in</string>
 </resources>
