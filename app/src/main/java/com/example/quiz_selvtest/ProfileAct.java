@@ -18,6 +18,8 @@ public class ProfileAct extends AppCompatActivity {
         findViewById(R.id.profile_toolbar_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(ProfileAct.this, FragmentController.class);
+                startActivity(intent);
                 finish();
             }
         });

@@ -1,50 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Quiz_2"
+    tools:context=".Quiz"
     android:background="#D1DBED">
 
-
-    <Button
-        android:id="@+id/btn_a3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#FFFFFF"
-        android:stateListAnimator="@null"
-        android:text="@string/q2_answer3"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:onClick="checkAnswer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_a2" />
-
-    <Button
-        android:id="@+id/btn_a4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#FFFFFF"
-        android:stateListAnimator="@null"
-        android:text="@string/q2_answer4"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:onClick="checkAnswer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_a3" />
-
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/Quiz_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
@@ -58,7 +22,7 @@
         app:srcCompat="@drawable/quiz" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/Quiz_Slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -66,53 +30,88 @@
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_Title" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/Quiz_Question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textColor="#000000"
         android:gravity="center"
-        android:text="@string/q2_question"
+        android:text="@string/quiz_question_placeholder"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_Slogan" />
 
     <Button
-        android:id="@+id/btn_a1"
+        android:id="@+id/Quiz_btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="50dp"
         android:backgroundTint="#FFFFFF"
         android:stateListAnimator="@null"
-        android:text="@string/q2_answer1"
+        android:text="@string/quiz_answer_placeholder"
         android:textAllCaps="false"
         android:textSize="30sp"
-        android:onClick="checkAnswer"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_Question" />
 
     <Button
-        android:id="@+id/btn_a2"
+        android:id="@+id/Quiz_btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:backgroundTint="#FFFFFF"
         android:stateListAnimator="@null"
-        android:text="@string/q2_answer2"
+        android:text="@string/quiz_answer_placeholder"
         android:textAllCaps="false"
         android:textSize="30sp"
-        android:onClick="checkAnswer"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.676"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_a1" />
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn1" />
+
+    <Button
+        android:id="@+id/Quiz_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:text="@string/quiz_answer_placeholder"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn2" />
+
+    <Button
+        android:id="@+id/Quiz_btn4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="#FFFFFF"
+        android:stateListAnimator="@null"
+        android:text="@string/quiz_answer_placeholder"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn3" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

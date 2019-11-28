@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,32 +19,33 @@ public class FragmentController extends AppCompatActivity {
         setContentView(R.layout.activity_homescreen);
 
         BottomNavigationView bottomnav = findViewById(R.id.bottom_navigation);
+        bottomnav.setSelectedItemId(R.id.Home);
         bottomnav.setOnNavigationItemSelectedListener(navlistner);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navlistner = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-            Fragment selectedF = null;
+            Fragment selectedF;
             switch (menuItem.getItemId()){
-
                 case R.id.Home:
                     selectedF = new HomeFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
-                    break;
+                    return true;
+//                    break;
                 case R.id.courses:
                     selectedF = new My_coursesFrag();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
-                    break;
+                    return true;
+//                    break;
                 case R.id.your_profile:
                     Intent intent = new Intent(FragmentController.this, ProfileAct.class);
                     startActivity(intent);
-                    break;
+                    return true;
+//                    break;
             }
-            return true;
+            return false;
 
         }
     };
