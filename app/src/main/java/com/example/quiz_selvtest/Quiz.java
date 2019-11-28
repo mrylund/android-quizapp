@@ -31,6 +31,7 @@ public class Quiz extends AppCompatActivity {
             String status;
             getIntent();
             String quizCode = intent.getStringExtra("quizCode");
+            setQuestion("Indlæser spørgsmål...");
             try {
                 game = new QuizHandler(quizCode);
                 status = "Success";
@@ -46,6 +47,10 @@ public class Quiz extends AppCompatActivity {
         protected void onPostExecute(String s) {
             if (s.equals("Success")) {
                 setInfo();
+                findViewById(R.id.Quiz_btn1).setVisibility(View.VISIBLE);
+                findViewById(R.id.Quiz_btn2).setVisibility(View.VISIBLE);
+                findViewById(R.id.Quiz_btn3).setVisibility(View.VISIBLE);
+                findViewById(R.id.Quiz_btn4).setVisibility(View.VISIBLE);
             } else {
                 // If no internet connection the app will fail.
                 setQuestion("Something went wrong");
@@ -72,7 +77,7 @@ public class Quiz extends AppCompatActivity {
         }
         game.nextQuestion();
         setInfo();
-        
+
         if (game.hasEnded()) {
             endGame();
         }
