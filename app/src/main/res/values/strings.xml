@@ -48,4 +48,6 @@
     <string name="help">Help</string>
     <string name="createquizbtn">Create quiz</string>
     <string name="createQuizTXT">create quiz</string>
+    <string name="quiz_answer_placeholder">Answer</string>
+    <string name="quiz_question_placeholder">Question</string>
 </resources>
