@@ -29,7 +29,7 @@
     <string name="quiz_logo">Logo</string>
     <string name="quiz_ongoing_slogan">Being busy!</string>
     <string name="q1_question">Hvilket udtryk er en tildeling? (assignment)</string>
-    <string name="q1_answer1">int a:</string>
+    <string name="q1_answer1">int a;</string>
     <string name="q1_answer2">a = 2;</string>
     <string name="q1_answer3">a == 2</string>
     <string name="q1_answer4">a >= 2</string>
