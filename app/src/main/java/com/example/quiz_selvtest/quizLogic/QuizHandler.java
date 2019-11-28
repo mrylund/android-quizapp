@@ -12,7 +12,7 @@ public class QuizHandler implements Serializable {
     private List<String> questions;
     private List<String[]> answers;
     private List<Integer> correctAnswers;
-    private static String testQuiz = "https://drive.google.com/file/d/1jv03JLv_ayY7I1h1WQpYS2KFN5Z6Uukf/view";
+    private static String testQuiz = "https://drive.google.com/file/d/1IuMUZaZC_8eH-iJZGTwiG0iozv9BeWg1k-HseRslW24/view";
     private int curQuestion;
     private boolean quizEnded;
     private int score;
