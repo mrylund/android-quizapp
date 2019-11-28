@@ -21,6 +21,8 @@ public class NoAccountAct extends AppCompatActivity {
         Button btnJoin = findViewById(R.id.btn_join_quiz);
         final EditText joinCode = findViewById(R.id.txt_joincode);
 
+        joinCode.setText("ABC123");
+
         joinCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
