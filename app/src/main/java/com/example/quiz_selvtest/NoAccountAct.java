@@ -45,7 +45,8 @@ public class NoAccountAct extends AppCompatActivity {
 
     public void joinQuiz(String password) {
         if (password.equals(pass)) {
-            Intent intent = new Intent(this, Quiz_1.class);
+            Intent intent = new Intent(this, Quiz.class);
+            intent.putExtra("quizCode", password);
             startActivity(intent);
         } else {
             EditText joinCode = findViewById(R.id.txt_joincode);
