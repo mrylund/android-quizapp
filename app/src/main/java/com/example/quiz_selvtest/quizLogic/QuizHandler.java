@@ -3,11 +3,12 @@ package com.example.quiz_selvtest.quizLogic;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuizHandler {
+public class QuizHandler implements Serializable {
     private List<String> questions;
     private List<String[]> answers;
     private List<Integer> correctAnswers;
@@ -18,10 +19,11 @@ public class QuizHandler {
 
 
     public QuizHandler() throws IOException {
-        this(testQuiz);
+        this("ABC123");
     }
 
-    public QuizHandler(String sheet) throws IOException {
+    public QuizHandler(String quizCode) throws IOException {
+        String sheet = testQuiz;
         String sheetID = getSheetID(sheet);
         questions = new ArrayList<>();
         answers = new ArrayList<>();
@@ -110,8 +112,11 @@ public class QuizHandler {
     }
 
     public void nextQuestion() {
-        curQuestion++;
-        if (curQuestion > questions.size()) quizEnded = true;
+        if (curQuestion < questions.size() - 1){
+            curQuestion++;
+        } else {
+            quizEnded = true;
+        }
     }
 
     public String getQuestion(int question) {
@@ -139,7 +144,5 @@ public class QuizHandler {
     public void addScore() {
         score++;
     }
-
-
 
 }
