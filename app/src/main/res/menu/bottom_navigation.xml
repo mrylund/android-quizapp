@@ -12,7 +12,6 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home"
         />
-
     <item
         android:id="@+id/courses"
         android:icon="@drawable/burgermenu"
