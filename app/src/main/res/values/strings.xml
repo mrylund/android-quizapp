@@ -38,7 +38,7 @@
     <string name="q2_answer2">int størreEnd (int a, int b) { return a>b; }</string>
     <string name="q2_answer3">boolean størreEnd (int a, int b) { return a>b;}</string>
     <string name="q2_answer4">int sum (int a, int b) { return a+b; }</string>
-    <string name="quiz_result">Du har gennemført quizzen, resultat kommer til at stå here i en senere iteration!</string>
+    <string name="quiz_result">Du har gennemført quizzen, du fik %d ud af %d rigtige!</string>
     <string name="quiz_end_button">Tilbage til start skærm</string>
     <string name="studentsigninhint1">Student mail</string>
     <string name="studentsigninhint2">Student password</string>
