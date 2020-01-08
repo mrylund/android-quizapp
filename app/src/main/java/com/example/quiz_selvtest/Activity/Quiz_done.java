@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest;
+package com.example.quiz_selvtest.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.quiz_selvtest.R;
 import com.example.quiz_selvtest.quizLogic.QuizHandler;
 
 public class Quiz_done extends AppCompatActivity {

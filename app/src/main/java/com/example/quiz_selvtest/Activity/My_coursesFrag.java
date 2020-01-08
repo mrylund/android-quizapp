@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest;
+package com.example.quiz_selvtest.Activity;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.quiz_selvtest.R;
 
 /**
  * A simple {@link Fragment} subclass.

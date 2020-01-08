@@ -11,17 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Quiz"></activity>
-        <activity android:name=".FragmentController" />
-        <activity android:name=".NoAccountAct" />
-        <activity android:name=".Quiz_done" />
-        <activity android:name=".RegisterAct" />
-        <activity android:name=".NonStudentSigninAct" />
-        <activity android:name=".CreateQuizAct" />
-        <activity android:name=".StudentSigninAct" />
-        <activity android:name=".SettingsAct" />
-        <activity android:name=".ProfileAct" />
-        <activity android:name=".StartScreenAct">
+        <activity android:name=".Activity.Quiz"></activity>
+        <activity android:name=".Activity.FragmentController" />
+        <activity android:name=".Activity.NoAccountAct" />
+        <activity android:name=".Activity.Quiz_done" />
+        <activity android:name=".Activity.RegisterAct" />
+        <activity android:name=".Activity.NonStudentSigninAct" />
+        <activity android:name=".Activity.CreateQuizAct" />
+        <activity android:name=".Activity.StudentSigninAct" />
+        <activity android:name=".Activity.SettingsAct" />
+        <activity android:name=".Activity.ProfileAct" />
+        <activity android:name=".Activity.StartScreenAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,8 +1,10 @@
-package com.example.quiz_selvtest;
+package com.example.quiz_selvtest.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.quiz_selvtest.R;
 
 public class CreateQuizAct extends AppCompatActivity {
 

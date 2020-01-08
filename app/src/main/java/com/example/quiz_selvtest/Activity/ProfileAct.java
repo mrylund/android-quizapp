@@ -1,12 +1,12 @@
-package com.example.quiz_selvtest;
+package com.example.quiz_selvtest.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+
+import com.example.quiz_selvtest.R;
 
 public class ProfileAct extends AppCompatActivity {
 
