@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Quiz_Selvtest</string>
-    <string name="startscreenbutton1"><![CDATA[Students & Teachers]]></string>
-    <string name="startscreenbutton2">Sign in</string>
+    <string name="startscreenbutton1"><![CDATA[Students & teachers]]></string>
+    <string name="startscreenbutton2">Non-student</string>
     <string name="startscreenbutton3">Play without account</string>
     <string name="noaccount">Don\'t have an account?</string>
     <string name="registerbutton">Register now!</string>
@@ -16,7 +16,7 @@
     <string name="profile_name">Pingvinen</string>
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
-    <string name="profil_desc">ProfilBillede</string>
+    <string name="profil_desc">Profilbillede</string>
     <string name="registerHint1">e-mail</string>
     <string name="registerHint2">username</string>
     <string name="registerHint3">password</string>
@@ -43,8 +43,8 @@
     <string name="studentsigninhint1">Student mail</string>
     <string name="studentsigninhint2">Student password</string>
     <string name="hejscreenlabelsignin">student sign in</string>
-    <string name="createquizlabel">create your quiz</string>
-    <string name="enterUrl">enter url here</string>
+    <string name="createquizlabel">Create your quiz</string>
+    <string name="enterUrl">Enter url here</string>
     <string name="help">Help</string>
     <string name="createquizbtn">Create quiz</string>
     <string name="createQuizTXT">create quiz</string>
