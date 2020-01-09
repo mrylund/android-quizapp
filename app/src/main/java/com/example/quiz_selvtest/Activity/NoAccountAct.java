@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.quiz_selvtest.R;
@@ -19,6 +20,15 @@ public class NoAccountAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_account);
+        ImageView goBackBTN = findViewById(R.id.goBackBTN2);
+
+        goBackBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NoAccountAct.this, StartScreenAct.class));
+            }
+        });
+
         Button btnJoin = findViewById(R.id.btn_join_quiz);
         final EditText joinCode = findViewById(R.id.txt_joincode);
 
