@@ -20,7 +20,7 @@ public class NoAccountAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_account);
-        ImageView goBackBTN = findViewById(R.id.goBackBTN2);
+        ImageView goBackBTN = findViewById(R.id.goBackBTN9);
 
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,17 +11,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.Quiz"></activity>
-        <activity android:name=".Activity.FragmentController" />
-        <activity android:name=".Activity.NoAccountAct" />
+        <activity android:name=".Activity.Quiz"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Activity.FragmentController"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.NoAccountAct"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activity.Quiz_done" />
-        <activity android:name=".Activity.RegisterAct" />
-        <activity android:name=".Activity.NonStudentSigninAct" />
-        <activity android:name=".Activity.CreateQuizAct" />
-        <activity android:name=".Activity.StudentSigninAct" />
-        <activity android:name=".Activity.SettingsAct" />
-        <activity android:name=".Activity.ProfileAct" />
-        <activity android:name=".Activity.StartScreenAct">
+        <activity android:name=".Activity.RegisterAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.NonStudentSigninAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.CreateQuizAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.StudentSigninAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.SettingsAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.ProfileAct"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity.StartScreenAct"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
