@@ -60,14 +60,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginBottom="220dp"
-        android:backgroundTint="#FFFFFF"
         android:stateListAnimator="@null"
         android:text="@string/signin"
         android:textAllCaps="false"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/round_edges_button"/>
 
     <ImageView
         android:id="@+id/imageView"
