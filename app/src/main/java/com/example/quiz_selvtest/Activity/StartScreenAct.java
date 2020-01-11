@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.quiz_selvtest.R;
 
+import org.w3c.dom.Text;
+
 public class StartScreenAct extends AppCompatActivity {
 
     @Override
@@ -19,6 +21,7 @@ public class StartScreenAct extends AppCompatActivity {
         Button button = findViewById(R.id.startscreenbutton2);
         Button button2 = findViewById(R.id.button);
         TextView register = findViewById(R.id.registerTextView);
+        TextView forgotpw = findViewById(R.id.forgotPWTextView);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +43,13 @@ public class StartScreenAct extends AppCompatActivity {
                 startActivity(new Intent(StartScreenAct.this, RegisterAct.class));
             }
         });
+        forgotpw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StartScreenAct.this, ForgotPWAct.class));
+            }
+        });
+
     }
 
 

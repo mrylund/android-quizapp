@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.quiz_selvtest.R;
 
@@ -19,6 +20,7 @@ public class NonStudentSigninAct extends AppCompatActivity {
 
         ImageView goBackBTN = findViewById(R.id.goBackBTN2);
         Button signIn = findViewById(R.id.button2);
+        TextView register = findViewById(R.id.registerTextView2);
 
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +33,13 @@ public class NonStudentSigninAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NonStudentSigninAct.this, FragmentController.class));
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NonStudentSigninAct.this, RegisterAct.class));
             }
         });
 

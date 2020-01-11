@@ -17,11 +17,11 @@
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
     <string name="profil_desc">Profilbillede</string>
-    <string name="registerHint1">e-mail</string>
+    <string name="registerHint1">Enter your e-mail</string>
     <string name="registerHint2">username</string>
     <string name="registerHint3">password</string>
     <string name="registerHint4">repeat password</string>
-    <string name="registerBTN">Register</string>
+    <string name="registerBTN">Reset password</string>
 
     <string name="quizcode">Quiz Code</string>
     <string name="join_quiz">Join Quiz</string>
@@ -50,4 +50,5 @@
     <string name="createQuizTXT">create quiz</string>
     <string name="quiz_answer_placeholder">Answer</string>
     <string name="quiz_question_placeholder">Question</string>
+    <string name="forgotPWbutton">Forgot your password?</string>
 </resources>
