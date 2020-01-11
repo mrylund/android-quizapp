@@ -21,6 +21,7 @@ public class NonStudentSigninAct extends AppCompatActivity {
         ImageView goBackBTN = findViewById(R.id.goBackBTN2);
         Button signIn = findViewById(R.id.button2);
         TextView register = findViewById(R.id.registerTextView2);
+        TextView forgotpw = findViewById(R.id.forgotPWTextView2);
 
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,12 @@ public class NonStudentSigninAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(NonStudentSigninAct.this, RegisterAct.class));
+            }
+        });
+        forgotpw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(NonStudentSigninAct.this, ForgotPWAct.class));
             }
         });
 
