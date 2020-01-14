@@ -17,7 +17,6 @@ public class QuizHandler implements Serializable {
     private boolean quizEnded;
     private int score;
 
-
     public QuizHandler() throws IOException {
         this("ABC123");
     }

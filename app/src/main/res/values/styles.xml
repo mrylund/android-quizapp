@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/verdana</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
-        android:foreground="?android:attr/selectableItemBackground"
     </style>
 
 </resources>
