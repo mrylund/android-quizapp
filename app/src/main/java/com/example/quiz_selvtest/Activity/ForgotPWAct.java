@@ -30,11 +30,11 @@ public class ForgotPWAct extends AppCompatActivity {
                 animationView.setVisibility(View.VISIBLE);
             }
 
-            //When animation is over, clear the animation and change activity.
+            //When animation is over, clear the animation and finish the activity.
             @Override
             public void onAnimationEnd(Animator animation) {
                 animationView.setVisibility(View.GONE);
-                startActivity(new Intent(ForgotPWAct.this, StartScreenAct.class));
+                finish();
             }
 
             @Override
@@ -55,7 +55,7 @@ public class ForgotPWAct extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ForgotPWAct.this, StartScreenAct.class));
+                finish();
             }
         });
         submitButton.setOnClickListener(new View.OnClickListener() {

@@ -26,7 +26,7 @@ public class NonStudentSigninAct extends AppCompatActivity {
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(NonStudentSigninAct.this, StartScreenAct.class));
+                finish();
             }
         });
 
