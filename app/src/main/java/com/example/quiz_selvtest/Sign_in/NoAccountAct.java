@@ -27,7 +27,7 @@ public class NoAccountAct extends AppCompatActivity {
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(NoAccountAct.this, StartScreenAct.class));
+                finish();
             }
         });
 
