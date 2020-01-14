@@ -7,111 +7,151 @@
     tools:context=".Quiz.Quiz"
     android:background="#D1DBED">
 
-    <ImageView
-        android:id="@+id/Quiz_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="80dp"
-        android:contentDescription="@string/quiz_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/quiz" />
 
-    <TextView
-        android:id="@+id/Quiz_Slogan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/quiz_ongoing_slogan"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_Title" />
-
-    <TextView
-        android:id="@+id/Quiz_Question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="#000000"
-        android:gravity="center"
-        android:text="@string/quiz_question_placeholder"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_Slogan" />
-
-    <Button
-        android:id="@+id/Quiz_btn1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="50dp"
-        android:stateListAnimator="@null"
-        android:text="@string/quiz_answer_placeholder"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_Question"
-        android:background="@drawable/round_edges_button"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linear">
 
-    <Button
-        android:id="@+id/Quiz_btn2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="25dp"
-        android:stateListAnimator="@null"
-        android:text="@string/quiz_answer_placeholder"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.676"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn1"
-        android:background="@drawable/round_edges_button"/>
+        <TextView
+            android:id="@+id/Quiz_question_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/question_number"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title"
+            android:gravity="top|start" />
 
-    <Button
-        android:id="@+id/Quiz_btn3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="25dp"
-        android:stateListAnimator="@null"
-        android:text="@string/quiz_answer_placeholder"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn2"
-        android:background="@drawable/round_edges_button"/>
 
-    <Button
-        android:id="@+id/Quiz_btn4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="25dp"
-        android:stateListAnimator="@null"
-        android:text="@string/quiz_answer_placeholder"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Quiz_btn3"
-        android:background="@drawable/round_edges_button"/>
+        <ImageView
+            android:id="@+id/Quiz_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="150dp"
+            android:layout_marginBottom="5dp"
+            android:contentDescription="@string/quiz_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linear"
+            app:srcCompat="@drawable/quiz" />
 
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:id="@+id/loadingAnim"
+            app:lottie_loop="true"
+            app:lottie_fileName="loading.json"
+            app:lottie_autoPlay="true"/>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="25dp">
+
+                <TextView
+                    android:id="@+id/Quiz_Question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/quiz_question_placeholder"
+                    android:textColor="#000000"
+                    android:textSize="28sp"
+                    android:paddingHorizontal="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Quiz_Title" />
+
+                <Button
+                    android:id="@+id/Quiz_btn1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/round_edges_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/quiz_answer_placeholder"
+                    android:textAllCaps="false"
+                    android:textSize="30sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Quiz_Question" />
+
+                <Button
+                    android:id="@+id/Quiz_btn2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/round_edges_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/quiz_answer_placeholder"
+                    android:textAllCaps="false"
+                    android:textSize="30sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.676"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Quiz_btn1" />
+
+                <Button
+                    android:id="@+id/Quiz_btn3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/round_edges_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/quiz_answer_placeholder"
+                    android:textAllCaps="false"
+                    android:textSize="30sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.646"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Quiz_btn2" />
+
+                <Button
+                    android:id="@+id/Quiz_btn4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/round_edges_button"
+                    android:stateListAnimator="@null"
+                    android:text="@string/quiz_answer_placeholder"
+                    android:textAllCaps="false"
+                    android:textSize="30sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.646"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Quiz_btn3" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

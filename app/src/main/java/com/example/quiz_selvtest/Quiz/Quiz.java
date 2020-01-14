@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.quiz_selvtest.R;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class Quiz extends AppCompatActivity {
             String status;
             getIntent();
             String quizCode = intent.getStringExtra("quizCode");
-            setQuestion("Indlæser spørgsmål...");
+            setQuestion("Indlæser spørgsmål");
             try {
                 game = new QuizHandler(quizCode);
                 status = "Success";
@@ -40,7 +41,31 @@ public class Quiz extends AppCompatActivity {
                 e.printStackTrace();
                 status = "Fail";
             }
+
+            for (int i = 1; i <= 9; i++) {
+                try {
+                    Thread.sleep(320);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                publishProgress(i%4);
+            }
+
+
+
+
             return status;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            switch (values[0]) {
+                case 0: setQuestion("Indlæser spørgsmål"); break;
+                case 1: setQuestion("Indlæser spørgsmål."); break;
+                case 2: setQuestion("Indlæser spørgsmål.."); break;
+                case 3: setQuestion("Indlæser spørgsmål..."); break;
+            }
         }
 
         @Override
@@ -51,6 +76,10 @@ public class Quiz extends AppCompatActivity {
                 findViewById(R.id.Quiz_btn2).setVisibility(View.VISIBLE);
                 findViewById(R.id.Quiz_btn3).setVisibility(View.VISIBLE);
                 findViewById(R.id.Quiz_btn4).setVisibility(View.VISIBLE);
+                findViewById(R.id.Quiz_question_count).setVisibility(View.VISIBLE);
+
+                LottieAnimationView loading = findViewById(R.id.loadingAnim);
+                loading.setVisibility(View.GONE);
             } else {
                 // If no internet connection the app will fail.
                 setQuestion("Something went wrong");
@@ -61,6 +90,11 @@ public class Quiz extends AppCompatActivity {
     private void setInfo() {
         String q = game.getQuestion();
         String[] ans = game.getAnswers();
+
+        String qNum = String.format(getString(R.string.question_number), game.getCurQuestionNum() + 1, game.getQuestionCount());
+
+        TextView questionNum = findViewById((R.id.Quiz_question_count));
+        questionNum.setText(qNum);
 
         int n = 0;
         for (String a : ans) {

@@ -144,6 +144,8 @@ public class QuizHandler implements Serializable {
         return questions.size();
     }
 
+    public int getCurQuestionNum() { return curQuestion;}
+
     public void addScore() {
         score++;
     }

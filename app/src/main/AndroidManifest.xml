@@ -16,7 +16,7 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".Quiz.Quiz"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" android:noHistory="true"/>
         <activity
             android:name=".Fragment.FragmentController"
             android:screenOrientation="portrait" />
