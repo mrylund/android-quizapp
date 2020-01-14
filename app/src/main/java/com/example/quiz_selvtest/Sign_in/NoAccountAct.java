@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.Activity;
+package com.example.quiz_selvtest.Sign_in;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.quiz_selvtest.Activity.StartScreenAct;
+import com.example.quiz_selvtest.Quiz.Quiz;
 import com.example.quiz_selvtest.R;
 
 public class NoAccountAct extends AppCompatActivity {

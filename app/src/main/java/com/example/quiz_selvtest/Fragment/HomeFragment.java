@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.Activity;
+package com.example.quiz_selvtest.Fragment;
 
 
 import android.content.Intent;

@@ -12,28 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ForgotPWAct"></activity>
+        <activity android:name=".Sign_in.ForgotPWAct"></activity>
         <activity
-            android:name=".Activity.Quiz"
+            android:name=".Quiz.Quiz"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.FragmentController"
+            android:name=".Fragment.FragmentController"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.NoAccountAct"
+            android:name=".Sign_in.NoAccountAct"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activity.Quiz_done" />
+        <activity android:name=".Quiz.Quiz_done" />
         <activity
-            android:name=".Activity.RegisterAct"
+            android:name=".Sign_in.RegisterAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.NonStudentSigninAct"
+            android:name=".Sign_in.NonStudentSigninAct"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.CreateQuizAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.StudentSigninAct"
+            android:name=".Sign_in.StudentSigninAct"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activity.SettingsAct"

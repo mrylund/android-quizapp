@@ -8,8 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.quiz_selvtest.R;
-
-import org.w3c.dom.Text;
+import com.example.quiz_selvtest.Sign_in.ForgotPWAct;
+import com.example.quiz_selvtest.Sign_in.NoAccountAct;
+import com.example.quiz_selvtest.Sign_in.NonStudentSigninAct;
+import com.example.quiz_selvtest.Sign_in.RegisterAct;
+import com.example.quiz_selvtest.Sign_in.StudentSigninAct;
 
 public class StartScreenAct extends AppCompatActivity {
 

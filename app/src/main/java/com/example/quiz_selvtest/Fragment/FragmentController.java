@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.Activity;
+package com.example.quiz_selvtest.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.quiz_selvtest.Activity.ProfileAct;
 import com.example.quiz_selvtest.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

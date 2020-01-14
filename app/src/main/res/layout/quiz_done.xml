@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Quiz_done"
+    tools:context=".Quiz.Quiz_done"
     android:background="#D1DBED">
 
 

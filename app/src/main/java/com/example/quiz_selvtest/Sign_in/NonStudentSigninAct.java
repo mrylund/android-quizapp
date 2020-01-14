@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.Activity;
+package com.example.quiz_selvtest.Sign_in;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.quiz_selvtest.Fragment.FragmentController;
+import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.R;
 
 public class NonStudentSigninAct extends AppCompatActivity {

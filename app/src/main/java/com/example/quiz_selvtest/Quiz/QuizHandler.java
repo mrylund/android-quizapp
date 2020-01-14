@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.quizLogic;
+package com.example.quiz_selvtest.Quiz;
 
 import java.io.BufferedReader;
 import java.io.IOException;

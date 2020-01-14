@@ -1,4 +1,4 @@
-package com.example.quiz_selvtest.Activity;
+package com.example.quiz_selvtest.Quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.quiz_selvtest.R;
-import com.example.quiz_selvtest.quizLogic.QuizHandler;
 
 import java.io.IOException;
 
