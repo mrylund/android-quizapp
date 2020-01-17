@@ -63,10 +63,10 @@ public class RegisterAct extends AppCompatActivity {
 
     private void isPasswordAccepted(){
         final EditText passWordToValidate = findViewById(R.id.registerPassword);
-        final EditText repeatPassWord = findViewById(R.id.repeatPassword);
+        final EditText repeatPassword = findViewById(R.id.repeatPassword);
 
         String pw = passWordToValidate.getText().toString().trim();
-        String repeatPW = repeatPassWord.getText().toString().trim();
+        String repeatPW = repeatPassword.getText().toString().trim();
 
 
 
