@@ -58,8 +58,10 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title">
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title"
+            android:fillViewport="true"
+            android:layout_weight="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="30dp"
                     android:background="@drawable/round_edges_button"
                     android:stateListAnimator="@null"
                     android:text="@string/quiz_answer_placeholder"
@@ -151,6 +153,22 @@
 
             </LinearLayout>
         </ScrollView>
+
+        <Button
+            android:id="@+id/btnAnswer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/green"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/round_edges_button"
+            android:stateListAnimator="@null"
+            android:text="@string/quiz_answer_placeholder"
+            android:textAllCaps="false"
+            android:textSize="30sp"
+            android:visibility="gone" />
     </LinearLayout>
 
 

@@ -2,21 +2,25 @@ package com.example.quiz_selvtest.Quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.quiz_selvtest.R;
+import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.IOException;
 
 public class Quiz extends AppCompatActivity {
     private QuizHandler game;
     Intent intent;
+    private boolean a1 = false, a2 = false, a3 = false, a4 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +41,19 @@ public class Quiz extends AppCompatActivity {
                 game = new QuizHandler(quizCode);
                 status = "Success";
                 System.out.println(game.getQuestion());
-            } catch (IOException e) {
+            } catch (IOException | CsvValidationException e) {
                 e.printStackTrace();
                 status = "Fail";
             }
 
-            for (int i = 1; i <= 9; i++) {
+            /*for (int i = 1; i <= 9; i++) {
                 try {
                     Thread.sleep(320);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 publishProgress(i%4);
-            }
-
-
-
+            }*/
 
             return status;
         }
@@ -77,6 +78,15 @@ public class Quiz extends AppCompatActivity {
                 findViewById(R.id.Quiz_btn3).setVisibility(View.VISIBLE);
                 findViewById(R.id.Quiz_btn4).setVisibility(View.VISIBLE);
                 findViewById(R.id.Quiz_question_count).setVisibility(View.VISIBLE);
+                Button answer = findViewById(R.id.btnAnswer);
+                answer.setVisibility(View.VISIBLE);
+                answer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        answer();
+                    }
+                });
+
 
                 LottieAnimationView loading = findViewById(R.id.loadingAnim);
                 loading.setVisibility(View.GONE);
@@ -96,6 +106,15 @@ public class Quiz extends AppCompatActivity {
         TextView questionNum = findViewById((R.id.Quiz_question_count));
         questionNum.setText(qNum);
 
+        findViewById(R.id.Quiz_btn1).setPressed(false);
+        findViewById(R.id.Quiz_btn2).setPressed(false);
+        findViewById(R.id.Quiz_btn3).setPressed(false);
+        findViewById(R.id.Quiz_btn4).setPressed(false);
+        a1 = false;
+        a2 = false;
+        a3 = false;
+        a4 = false;
+
         int n = 0;
         for (String a : ans) {
             n++;
@@ -105,13 +124,31 @@ public class Quiz extends AppCompatActivity {
         setQuestion(q);
     }
 
-    private void pressAnswer(int n) {
-        if (game.checkAnswer(n, false)) {
+    private void pressAnswer(View v, int n) {
+        switch (n) {
+            case 1: a1 = !a1; break;
+            case 2: a2 = !a2; break;
+            case 3: a3 = !a3; break;
+            case 4: a4 = !a4; break;
+        }
+
+/*        if (game.checkAnswer(n, false)) {
             game.addScore();
         }
         game.nextQuestion();
         setInfo();
 
+        if (game.hasEnded()) {
+            endGame();
+        }*/
+    }
+
+    private void answer() {
+        if (game.checkAnswers(a1, a2, a3, a4)) {
+            game.addScore();
+        }
+        game.nextQuestion();
+        setInfo();
         if (game.hasEnded()) {
             endGame();
         }
@@ -129,6 +166,7 @@ public class Quiz extends AppCompatActivity {
         q.setText(a);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void setAnswer(final int n, String a) {
         Button btn = findViewById(R.id.Quiz_btn1);
         switch(n) {
@@ -138,10 +176,15 @@ public class Quiz extends AppCompatActivity {
             case 4: btn = findViewById(R.id.Quiz_btn4); break;
         }
         btn.setText(a);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                pressAnswer(n);
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Button b = ((Button) v);
+                    b.setPressed(!b.isPressed());//if pressed, unpress; if unpressed, press
+                    pressAnswer(v, n);
+                }
+                return true;
             }
         });
     }

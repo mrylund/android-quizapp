@@ -24,6 +24,7 @@ public class Quiz_done extends AppCompatActivity {
 
     public void setInfo() {
         QuizHandler game = (QuizHandler) intent.getSerializableExtra("game");
+        assert game != null;
         int score = game.getScore();
         int totalQuestions = game.getQuestionCount();
 

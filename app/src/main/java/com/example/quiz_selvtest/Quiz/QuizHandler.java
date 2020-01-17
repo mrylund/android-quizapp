@@ -9,103 +9,57 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class QuizHandler implements Serializable {
-    private List<String> questions;
-    private List<String[]> answers;
-    private List<Integer> correctAnswers;
+    private List<Question> questionsNew;
     private static String testQuiz = "https://drive.google.com/file/d/1IuMUZaZC_8eH-iJZGTwiG0iozv9BeWg1k-HseRslW24/view";
     private int curQuestion;
     private boolean quizEnded;
     private int score;
 
-    public QuizHandler() throws IOException {
+    public QuizHandler() throws IOException, CsvValidationException {
         this("ABC123");
     }
 
-    public QuizHandler(String quizCode) throws IOException {
+    public QuizHandler(String quizCode) throws IOException, CsvValidationException {
         String sheet = testQuiz;
         String sheetID = getSheetID(sheet);
-        questions = new ArrayList<>();
-        answers = new ArrayList<>();
-        correctAnswers = new ArrayList<>();
         curQuestion = 0;
         score = 0;
         quizEnded = false;
-        getCSV(sheetID);
-        hentOrd(sheetID);
+        CSVReader reader = getCSV(sheetID);
+        initializeObjects(reader);
     }
 
-
-    // Get the data from the URL
-    public static String hentUrl(String url) throws IOException {
-        System.out.println("Henter data fra " + url);
-        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
-        StringBuilder sb = new StringBuilder();
-        String linje = br.readLine();
-        while (linje != null) {
-            sb.append(linje + "\n");
-            linje = br.readLine();
-        }
-        return sb.toString();
-    }
-
-    private void getCSV(String sheet) {
-        try {
+    private CSVReader getCSV(String sheet) throws IOException {
             InputStream input = new URL("https://docs.google.com/spreadsheets/d/" + sheet + "/export?format=csv&id=" + sheet).openStream();
-            CSVReader reader = new CSVReaderBuilder(new InputStreamReader(input, "UTF-8")).withSkipLines(8).build();
-
-            String[] line;
-            while ((line = reader.readNext()) != null) {
-                if (line[1].equals("")) break;
-                System.out.println("Q = " + line[1] + "\n " +
-                        "A1 = " + line[2] + "\n" +
-                        "A2 = " + line[3]  + "\n" +
-                        "A3 = " + line[4]  + "\n" +
-                        "A4 = " + line[5]  + "\n" +
-                        "Tid = " + line[6] + "\n" +
-                        "Correct = " + line[7]  + "\n\n\n");
-            }
-
-        } catch (IOException | CsvValidationException e) {
-            e.printStackTrace();
-        }
+            return new CSVReaderBuilder(new InputStreamReader(input, "UTF-8")).withSkipLines(8).build();
     }
 
-    private void hentOrd(String sheet) throws IOException {
-        System.out.println("Henter data som kommasepareret CSV fra regnearket https://docs.google.com/spreadsheets/d/"+sheet+"/edit?usp=sharing");
+    private void initializeObjects(CSVReader reader) throws IOException, CsvValidationException {
+        questionsNew = new ArrayList<>();
 
-        String data = hentUrl("https://docs.google.com/spreadsheets/d/" + sheet + "/export?format=csv&id=" + sheet);
-        int linjeNr = 0;
-        for (String linje : data.split("\n")) {
-            if (linjeNr++ < 8 ) continue;
-            String[] felter = linje.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1); // Regex fundet her: https://stackabuse.com/regex-splitting-by-character-unless-in-quotes/
-
-            // Break if no more questions in the sheet
-            if (felter[1].isEmpty()) break;
-            // Set the question and the possible answers
-            String q = felter[1];
-            String[] a = {felter[2], felter[3], felter[4], felter[5]};
-
-            // Get the correct answer number, fool proof from people placing commas and dots.
-            // TODO: possibility to have multiple answers
-            int ca;
-            if (felter[7].contains(".") || felter[7].contains(",")) {
-                String tal = felter[7].split("(?=[,.])")[0];
-                tal = tal.replace("\"", "");
-                ca = Integer.parseInt(tal);
-                System.out.println(ca);
-            } else {
-                ca = Integer.parseInt(felter[7]);
+        String[] line;
+        while ((line = reader.readNext()) != null) {
+            if (line[1].equals("")) break;
+            String question = line[1];
+            String[] answers = {line[2], line[3], line[4], line[5]};
+            int tid = Integer.parseInt(line[6]);
+            String[] correctString = line[7].split(",");
+            int[] correct = new int[correctString.length];
+            for(int i = 0; i < correctString.length; i++) {
+                correct[i] =  Integer.parseInt(correctString[i]);
             }
 
-            // Add the information in the lists
-            questions.add(q);
-            answers.add(a);
-            correctAnswers.add(ca);
+            Question q = new Question(question, answers, correct);
+            questionsNew.add(q);
         }
     }
 
@@ -117,47 +71,54 @@ public class QuizHandler implements Serializable {
         return url;
     }
 
-    public boolean checkAnswer(int question, int answer, boolean nextQuestion) {
-        boolean correct = correctAnswers.get(question) == answer;
-        if (nextQuestion) {
-            if (correct) {
-                addScore();
-            }
-            nextQuestion();
-        }
-        return correct;
-    }
-    public boolean checkAnswer(int answer, boolean nextQuestion) {
-        return checkAnswer(curQuestion, answer, nextQuestion);
-    }
 
-    public int getAnswer(int question) {
-        return correctAnswers.get(question);
-    }
-    public int getAnswer() {
-        return getAnswer(curQuestion);
+    public boolean checkAnswers(boolean a1, boolean a2, boolean a3, boolean a4) {
+        boolean allCorrect;
+        boolean ca1 = false, ca2 = false, ca3 = false, ca4 = false;
+        for (int n : questionsNew.get(curQuestion).getCorrectAnswers()) {
+         switch (n) {
+             case 1: ca1 = true; break;
+             case 2: ca2 = true; break;
+             case 3: ca3 = true; break;
+             case 4: ca4 = true; break;
+         }
+        }
+
+        System.out.println(a1 +  " : " + ca1 + "\n" +
+                a2 +  " : " + ca2 + "\n" +
+                a3 +  " : " + ca3 + "\n" +
+                a4 +  " : " + ca4 + "\n\n\n");
+
+        allCorrect = a1 == ca1;
+        if (allCorrect) {
+            allCorrect = a2 == ca2;
+        }
+        if (allCorrect) {
+            allCorrect = a3 == ca3;
+        }
+        if (allCorrect) {
+            allCorrect = a4 == ca4;
+        }
+
+
+
+        return allCorrect;
     }
 
     public void nextQuestion() {
-        if (curQuestion < questions.size() - 1){
+        if (curQuestion < questionsNew.size() - 1){
             curQuestion++;
         } else {
             quizEnded = true;
         }
     }
 
-    public String getQuestion(int question) {
-        return questions.get(curQuestion);
-    }
     public String getQuestion() {
-        return getQuestion(curQuestion);
+        return questionsNew.get(curQuestion).getQuestion();
     }
 
-    public String[] getAnswers(int question) {
-        return answers.get(curQuestion);
-    }
     public String[] getAnswers() {
-        return getAnswers(curQuestion);
+        return questionsNew.get(curQuestion).getAnswers();
     }
 
     public boolean hasEnded() {
@@ -169,7 +130,7 @@ public class QuizHandler implements Serializable {
     }
 
     public int getQuestionCount() {
-        return questions.size();
+        return questionsNew.size();
     }
 
     public int getCurQuestionNum() { return curQuestion;}
