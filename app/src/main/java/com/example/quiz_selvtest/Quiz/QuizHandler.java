@@ -1,7 +1,12 @@
 package com.example.quiz_selvtest.Quiz;
 
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.exceptions.CsvValidationException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.net.URL;
@@ -30,6 +35,7 @@ public class QuizHandler implements Serializable {
         curQuestion = 0;
         score = 0;
         quizEnded = false;
+        getCSV(sheetID);
         hentOrd(sheetID);
     }
 
@@ -45,6 +51,28 @@ public class QuizHandler implements Serializable {
             linje = br.readLine();
         }
         return sb.toString();
+    }
+
+    private void getCSV(String sheet) {
+        try {
+            InputStream input = new URL("https://docs.google.com/spreadsheets/d/" + sheet + "/export?format=csv&id=" + sheet).openStream();
+            CSVReader reader = new CSVReaderBuilder(new InputStreamReader(input, "UTF-8")).withSkipLines(8).build();
+
+            String[] line;
+            while ((line = reader.readNext()) != null) {
+                if (line[1].equals("")) break;
+                System.out.println("Q = " + line[1] + "\n " +
+                        "A1 = " + line[2] + "\n" +
+                        "A2 = " + line[3]  + "\n" +
+                        "A3 = " + line[4]  + "\n" +
+                        "A4 = " + line[5]  + "\n" +
+                        "Tid = " + line[6] + "\n" +
+                        "Correct = " + line[7]  + "\n\n\n");
+            }
+
+        } catch (IOException | CsvValidationException e) {
+            e.printStackTrace();
+        }
     }
 
     private void hentOrd(String sheet) throws IOException {
