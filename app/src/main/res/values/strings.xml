@@ -16,7 +16,7 @@
     <string name="profile_name">Pingvinen</string>
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
-    <string name="profil_desc">Profilbillede</string>
+    <string name="profil_desc">Profile picture</string>
     <string name="registerHint1">Enter your e-mail</string>
     <string name="registerHint2">username</string>
     <string name="registerHint3">password</string>
@@ -28,8 +28,8 @@
     <string name="join_title">Join a game</string>
     <string name="quiz_logo">Logo</string>
     <string name="quiz_ongoing_slogan">Busy learning!</string>
-    <string name="quiz_result">Du fik %d ud af %d rigtige!</string>
-    <string name="quiz_end_button">Tilbage til start skærm</string>
+    <string name="quiz_result">You got %d of %d correct answers!</string>
+    <string name="quiz_end_button">Back to homescreen</string>
     <string name="studentsigninhint1">Student mail</string>
     <string name="studentsigninhint2">Student password</string>
     <string name="hejscreenlabelsignin">student sign in</string>

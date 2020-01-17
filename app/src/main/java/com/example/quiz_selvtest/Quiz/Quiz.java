@@ -32,7 +32,7 @@ public class Quiz extends AppCompatActivity {
             String status;
             getIntent();
             String quizCode = intent.getStringExtra("quizCode");
-            setQuestion("Indlæser spørgsmål");
+            setQuestion("Loading questions");
             try {
                 game = new QuizHandler(quizCode);
                 status = "Success";
@@ -61,10 +61,10 @@ public class Quiz extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             switch (values[0]) {
-                case 0: setQuestion("Indlæser spørgsmål"); break;
-                case 1: setQuestion("Indlæser spørgsmål."); break;
-                case 2: setQuestion("Indlæser spørgsmål.."); break;
-                case 3: setQuestion("Indlæser spørgsmål..."); break;
+                case 0: setQuestion("Loading questions"); break;
+                case 1: setQuestion("Loading questions."); break;
+                case 2: setQuestion("Loading questions.."); break;
+                case 3: setQuestion("Loading questions..."); break;
             }
         }
 
