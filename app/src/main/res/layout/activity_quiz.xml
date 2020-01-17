@@ -27,19 +27,19 @@
             android:paddingTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title"
+            app:layout_constraintTop_toBottomOf="@+id/logo"
             android:gravity="top|start" />
 
 
-        <ImageView
-            android:id="@+id/Quiz_Title"
+        <TextView
+            android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="150dp"
-            android:layout_marginBottom="5dp"
-            android:contentDescription="@string/quiz_logo"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/greyscale"
+            android:textColor="@color/logoColor"
+            android:text="@string/logo"
+            android:textSize="70sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/linear"
@@ -59,7 +59,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/Quiz_Title">
+            app:layout_constraintTop_toBottomOf="@+id/logo">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                     android:paddingHorizontal="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/Quiz_Title" />
+                    app:layout_constraintTop_toBottomOf="@+id/logo" />
 
                 <Button
                     android:id="@+id/Quiz_btn1"
