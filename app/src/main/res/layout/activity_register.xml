@@ -24,15 +24,10 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/registerMail"
-        app:layout_constraintEnd_toEndOf="@+id/registerMail"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/registerMail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/quiz" />
 
     <Button
@@ -41,17 +36,17 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginStart="49dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="49dp"
-        android:layout_marginBottom="121dp"
+        android:background="@drawable/round_edges_button"
         android:stateListAnimator="@null"
         android:text="@string/registerBTN"
         android:textAllCaps="false"
         android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/round_edges_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/repeatPassword" />
 
     <EditText
         android:id="@+id/repeatPassword"
@@ -59,18 +54,18 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="30dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/registerHint4"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
 
     <EditText
         android:id="@+id/registerPassword"
@@ -78,18 +73,18 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="25dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/registerHint3"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/repeatPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
 
     <EditText
         android:id="@+id/registerUsername"
@@ -97,18 +92,18 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="25dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/registerHint2"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerMail" />
 
     <EditText
         android:id="@+id/registerMail"
@@ -116,17 +111,17 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="25dp"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/registerHint1"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

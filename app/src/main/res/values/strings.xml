@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz_Selvtest</string>
+    <string name="app_name">B6_Quiz</string>
     <string name="startscreenbutton1"><![CDATA[Students & teachers]]></string>
     <string name="startscreenbutton2">Non-student</string>
     <string name="startscreenbutton3">Play without account</string>
