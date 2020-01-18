@@ -68,7 +68,7 @@ public class NoAccountAct extends AppCompatActivity {
                     joinQuiz(joinCode.getText().toString());
                     break;
             }
-            return false;
+            return true;
         }
     };
 
