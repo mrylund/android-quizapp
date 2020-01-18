@@ -1,7 +1,9 @@
 package com.example.quiz_selvtest.Sign_in;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -15,6 +17,15 @@ import android.widget.TextView;
 import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.Quiz.Quiz;
 import com.example.quiz_selvtest.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class NoAccountAct extends AppCompatActivity {
     private String pass = "ABC123";
@@ -36,11 +47,12 @@ public class NoAccountAct extends AppCompatActivity {
 
         joinCode.setText("ABC123");
 
+        // TODO Make this work
         joinCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    joinQuiz(joinCode.getText().toString());
+                    joinQuizNew(joinCode.getText().toString());
                 }
                 return true;
             }
@@ -49,25 +61,31 @@ public class NoAccountAct extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                joinQuiz(joinCode.getText().toString());
+                joinQuizNew(joinCode.getText().toString());
             }
         });
     }
 
-    public void joinQuiz(View view, String password) {
-        joinQuiz(password);
-    }
-
-    public void joinQuiz(String password) {
-        if (password.equals(pass)) {
-            Intent intent = new Intent(this, Quiz.class);
-            intent.putExtra("quizCode", password);
-            startActivity(intent);
-        } else {
-            EditText joinCode = findViewById(R.id.txt_joincode);
-        }
 
 
+    public void joinQuizNew(String pw) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference col = db.collection("Quizzes");
+        Query query = col.whereEqualTo("ID", pw);
+        final Activity act = this;
+        query.limit(1).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                    Intent intent = new Intent(act, Quiz.class);
 
+                    String sheet = (String)document.get("Sheet");
+
+                    intent.putExtra("sheet", sheet);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 }
