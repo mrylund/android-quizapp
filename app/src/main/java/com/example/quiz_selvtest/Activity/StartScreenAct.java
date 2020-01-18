@@ -14,13 +14,24 @@ import com.example.quiz_selvtest.Sign_in.NoAccountAct;
 import com.example.quiz_selvtest.Sign_in.NonStudentSigninAct;
 import com.example.quiz_selvtest.Sign_in.RegisterAct;
 import com.example.quiz_selvtest.Sign_in.StudentSigninAct;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StartScreenAct extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //URL reference to our database. Everything will be stored in the link below.
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReferenceFromUrl("https://quizr-c3c3b.firebaseio.com/");
+
+        //Test save
+        myRef.setValue("Hello, World!");
+
         setContentView(R.layout.activity_startscreen);
 
         Button button = findViewById(R.id.startscreenbutton2);
