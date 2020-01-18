@@ -43,7 +43,15 @@ class QuizHandler implements Serializable {
         while ((line = reader.readNext()) != null) {
             if (line[1].equals("")) break;
             String question = line[1];
-            String[] answers = {line[2], line[3], line[4], line[5]};
+            List<String> answers = new ArrayList<>();
+
+            for (int i = 2; i <= 5; i++) {
+                if (line[i] != null) {
+                    answers.add(line[i]);
+                }
+            }
+
+            //String[] answers = {line[2], line[3], line[4], line[5]};
             int tid = Integer.parseInt(line[6]);
             String[] correctString = line[7].split(",");
             int[] correct = new int[correctString.length];
@@ -101,7 +109,7 @@ class QuizHandler implements Serializable {
         return questionsNew.get(curQuestion).getQuestion();
     }
 
-    public String[] getAnswers() {
+    public List<String> getAnswers() {
         return questionsNew.get(curQuestion).getAnswers();
     }
 

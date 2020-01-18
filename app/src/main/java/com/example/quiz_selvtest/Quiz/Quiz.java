@@ -16,6 +16,7 @@ import com.example.quiz_selvtest.R;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Quiz extends AppCompatActivity {
     private QuizHandler game;
@@ -90,17 +91,21 @@ public class Quiz extends AppCompatActivity {
 
     private void setInfo() {
         String q = game.getQuestion();
-        String[] ans = game.getAnswers();
+        List<String> ans = game.getAnswers();
+        if (ans.get(0).equals("") || ans.get(1).equals("")) {
+            game.nextQuestion();
+            if (game.hasEnded()) {
+                endGame();
+            }
+            setInfo();
+            return;
+        }
 
         String qNum = String.format(getString(R.string.question_number), game.getCurQuestionNum() + 1, game.getQuestionCount());
 
         TextView questionNum = findViewById((R.id.Quiz_question_count));
         questionNum.setText(qNum);
 
-        findViewById(R.id.Quiz_btn1).setPressed(false);
-        findViewById(R.id.Quiz_btn2).setPressed(false);
-        findViewById(R.id.Quiz_btn3).setPressed(false);
-        findViewById(R.id.Quiz_btn4).setPressed(false);
         a1 = false;
         a2 = false;
         a3 = false;
@@ -166,6 +171,12 @@ public class Quiz extends AppCompatActivity {
             case 3: btn = findViewById(R.id.Quiz_btn3); break;
             case 4: btn = findViewById(R.id.Quiz_btn4); break;
         }
+        btn.setPressed(false);
+        if (a.equals("")) {
+            btn.setVisibility(View.GONE);
+            return;
+        }
+        btn.setVisibility(View.VISIBLE);
         btn.setText(a);
         btn.setOnTouchListener(new View.OnTouchListener() {
             @Override

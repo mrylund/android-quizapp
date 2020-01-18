@@ -18,11 +18,14 @@ import com.example.quiz_selvtest.Quiz.Quiz;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.Objects;
 
 public class NoAccountAct extends AppCompatActivity {
     private String pass = "ABC123";
@@ -78,7 +81,8 @@ public class NoAccountAct extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult().getDocuments().get(0);
+                    DocumentSnapshot document = Objects.requireNonNull(task.getResult()).getDocuments().get(0);
+                    if (document == null) return;
                     Intent intent = new Intent(act, Quiz.class);
 
                     String sheet = (String)document.get("Sheet");
