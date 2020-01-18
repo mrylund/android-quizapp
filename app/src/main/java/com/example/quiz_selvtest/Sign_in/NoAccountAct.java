@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.List;
 import java.util.Objects;
 
 public class NoAccountAct extends AppCompatActivity {
@@ -81,8 +82,9 @@ public class NoAccountAct extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
-                    DocumentSnapshot document = Objects.requireNonNull(task.getResult()).getDocuments().get(0);
-                    if (document == null) return;
+                    List<DocumentSnapshot> documents = Objects.requireNonNull(task.getResult()).getDocuments();
+                    if (documents.size() < 1) return;
+                    DocumentSnapshot document = documents.get(0);
                     Intent intent = new Intent(act, Quiz.class);
 
                     String sheet = (String)document.get("Sheet");
