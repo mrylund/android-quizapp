@@ -65,10 +65,6 @@ public class Quiz extends AppCompatActivity {
         protected void onPostExecute(String s) {
             if (s.equals("Success")) {
                 setInfo();
-                findViewById(R.id.Quiz_btn1).setVisibility(View.VISIBLE);
-                findViewById(R.id.Quiz_btn2).setVisibility(View.VISIBLE);
-                findViewById(R.id.Quiz_btn3).setVisibility(View.VISIBLE);
-                findViewById(R.id.Quiz_btn4).setVisibility(View.VISIBLE);
                 findViewById(R.id.Quiz_question_count).setVisibility(View.VISIBLE);
                 Button answer = findViewById(R.id.btnAnswer);
                 answer.setVisibility(View.VISIBLE);
