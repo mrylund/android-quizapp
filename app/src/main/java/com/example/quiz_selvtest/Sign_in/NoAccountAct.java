@@ -18,7 +18,6 @@ import com.example.quiz_selvtest.Quiz.Quiz;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -29,12 +28,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class NoAccountAct extends AppCompatActivity {
-    private String pass = "ABC123";
+   EditText joinCode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_account);
         ImageView goBackBTN = findViewById(R.id.goBackBTN9);
+        Button btnJoin = findViewById(R.id.btn_join_quiz);
+        joinCode = findViewById(R.id.txt_joincode);
 
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,21 +45,9 @@ public class NoAccountAct extends AppCompatActivity {
             }
         });
 
-        Button btnJoin = findViewById(R.id.btn_join_quiz);
-        final EditText joinCode = findViewById(R.id.txt_joincode);
-
         joinCode.setText("ABC123");
 
-        // TODO Make this work
-        joinCode.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    joinQuiz(joinCode.getText().toString());
-                }
-                return true;
-            }
-        });
+        joinCode.setOnEditorActionListener(editorActionListener);
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +57,23 @@ public class NoAccountAct extends AppCompatActivity {
         });
     }
 
+    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            switch(actionId){
+                case EditorInfo.IME_ACTION_NEXT:
+                    joinQuiz(joinCode.getText().toString());
+                    break;
+                case EditorInfo.IME_ACTION_GO:
+                    joinQuiz(joinCode.getText().toString());
+                    break;
+            }
+            return false;
+        }
+    };
 
     public void joinQuiz(View v) {
-        EditText joinCode = findViewById(R.id.txt_joincode);
+        /*EditText joinCode = findViewById(R.id.txt_joincode);*/
         joinQuiz(joinCode.getText().toString());
     }
 
