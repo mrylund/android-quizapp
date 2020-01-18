@@ -3,13 +3,18 @@ package com.example.quiz_selvtest.Sign_in;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.R;
@@ -17,16 +22,20 @@ import com.example.quiz_selvtest.R;
 public class RegisterAct extends AppCompatActivity {
 
     private String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    private boolean allAccepted = false;
-    private boolean emailAccepted = false;
-    private boolean usernameAccepted = false;
-    private boolean passwordAccepted = false;
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        final EditText emailToValidate = findViewById(R.id.registerMail);
+        final EditText userNameToRegister = findViewById(R.id.registerUsername);
+        final EditText passwordToRegister = findViewById(R.id.registerPassword);
+        final EditText passwordToConfirm = findViewById(R.id.repeatPassword);
         ImageView goBack = findViewById(R.id.goBackBTN);
+        final Button register = findViewById(R.id.registerButton);
+
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,40 +44,47 @@ public class RegisterAct extends AppCompatActivity {
             }
         });
 
-    }
-
-    private void emailAccepted(){
-        final EditText emailToValidate = findViewById(R.id.registerMail);
-        final String email = emailToValidate.getText().toString().trim();
-
-        emailToValidate.addTextChangedListener(new TextWatcher() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void onClick(View v) {
+                String email = emailToValidate.getText().toString().trim();
+                String userName = userNameToRegister.getText().toString().trim();
+                String password = passwordToRegister.getText().toString().trim();
+                String passwordConfirm = passwordToConfirm.getText().toString().trim();
+                // TODO: 1/17/2020  Database kald til at tjekke om userName og email allerede eksistere i databasen
 
-            }
+                if(!email.equals(emailPattern) || email.isEmpty() || userName.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    final Dialog dialog = new Dialog(context);
+                    dialog.setContentView(R.layout.custom_dialog);
 
-            }
+                    TextView dialogIMG = dialog.findViewById(R.id.dialogTitle);
+                    dialogIMG.setText("UH-OH! Missing field");
 
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(email.matches(emailPattern) && s.length() > 0){
-                    emailAccepted = true;
+                    TextView dialogTXT = dialog.findViewById(R.id.dialogText);
+                    dialogTXT.setText("Check for errors in field");
+
+                    Button dialogButton = dialog.findViewById(R.id.dialogButtonOK);
+                    dialogButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
+
                 }
+
+                if(!password.equals(passwordConfirm)){
+
+                }else{
+
+                }
+
+
             }
         });
     }
 
-    private void isPasswordAccepted(){
-        final EditText passWordToValidate = findViewById(R.id.registerPassword);
-        final EditText repeatPassword = findViewById(R.id.repeatPassword);
-
-        String pw = passWordToValidate.getText().toString().trim();
-        String repeatPW = repeatPassword.getText().toString().trim();
-
-
-
-    }
 }
