@@ -14,17 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.Quiz.Quiz;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class NoAccountAct extends AppCompatActivity {
@@ -52,7 +49,7 @@ public class NoAccountAct extends AppCompatActivity {
             @Override
             public boolean onEditorAction(TextView exampleView, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_NULL && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    joinQuizNew(joinCode.getText().toString());
+                    joinQuiz(joinCode.getText().toString());
                 }
                 return true;
             }
@@ -61,14 +58,18 @@ public class NoAccountAct extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                joinQuizNew(joinCode.getText().toString());
+                joinQuiz(joinCode.getText().toString());
             }
         });
     }
 
 
+    public void joinQuiz(View v) {
+        EditText joinCode = findViewById(R.id.txt_joincode);
+        joinQuiz(joinCode.getText().toString());
+    }
 
-    public void joinQuizNew(String pw) {
+    public void joinQuiz(String pw) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference col = db.collection("Quizzes");
         Query query = col.whereEqualTo("ID", pw);
