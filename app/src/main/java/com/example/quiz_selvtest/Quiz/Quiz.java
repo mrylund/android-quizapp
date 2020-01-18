@@ -35,25 +35,16 @@ public class Quiz extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String status;
             getIntent();
-            String quizCode = intent.getStringExtra("quizCode");
+            String sheetID = intent.getStringExtra("sheet");
             setQuestion("Loading questions");
             try {
-                game = new QuizHandler(quizCode);
+                game = new QuizHandler(sheetID);
                 status = "Success";
                 System.out.println(game.getQuestion());
             } catch (IOException | CsvValidationException e) {
                 e.printStackTrace();
                 status = "Fail";
             }
-
-            /*for (int i = 1; i <= 9; i++) {
-                try {
-                    Thread.sleep(320);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                publishProgress(i%4);
-            }*/
 
             return status;
         }

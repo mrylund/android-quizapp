@@ -17,20 +17,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class QuizHandler implements Serializable {
+class QuizHandler implements Serializable {
     private List<Question> questionsNew;
-    private static String testQuiz = "https://drive.google.com/file/d/1IuMUZaZC_8eH-iJZGTwiG0iozv9BeWg1k-HseRslW24/view";
     private int curQuestion;
     private boolean quizEnded;
     private int score;
 
-    public QuizHandler() throws IOException, CsvValidationException {
-        this("ABC123");
-    }
-
-    public QuizHandler(String quizCode) throws IOException, CsvValidationException {
-        String sheet = testQuiz;
-        String sheetID = getSheetID(sheet);
+    QuizHandler(String sheetID) throws IOException, CsvValidationException {
         curQuestion = 0;
         score = 0;
         quizEnded = false;
@@ -63,16 +56,7 @@ public class QuizHandler implements Serializable {
         }
     }
 
-    // Get the ID of the google sheets
-    private String getSheetID(String url) {
-        url = url.substring(url.indexOf("/d/")+3);
-        url = url.substring(0, url.indexOf("/"));
-        url = url.trim();
-        return url;
-    }
-
-
-    public boolean checkAnswers(boolean a1, boolean a2, boolean a3, boolean a4) {
+    boolean checkAnswers(boolean a1, boolean a2, boolean a3, boolean a4) {
         boolean allCorrect;
         boolean ca1 = false, ca2 = false, ca3 = false, ca4 = false;
         for (int n : questionsNew.get(curQuestion).getCorrectAnswers()) {
