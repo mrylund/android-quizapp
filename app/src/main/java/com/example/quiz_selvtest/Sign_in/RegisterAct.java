@@ -52,7 +52,7 @@ public class RegisterAct extends AppCompatActivity {
                 String userName = userNameToRegister.getText().toString().trim();
                 String password = passwordToRegister.getText().toString().trim();
                 String passwordConfirm = passwordToConfirm.getText().toString().trim();
-
+                //Hello
                 // TODO: 1/17/2020  Database kald til at tjekke om userName og email allerede eksistere i databasen
                 if(!email.matches(emailPattern) || email.isEmpty() || userName.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
                     initCustomDialog("UH-OH! Error in field!","Please verify your inputs, and try again!");
