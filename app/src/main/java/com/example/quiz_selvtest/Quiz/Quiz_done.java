@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.R;
-import com.example.quiz_selvtest.Quiz.QuizHandler;
 
 public class Quiz_done extends AppCompatActivity {
     Intent intent;

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,10 +14,8 @@ import com.example.quiz_selvtest.Sign_in.NoAccountAct;
 import com.example.quiz_selvtest.Sign_in.NonStudentSigninAct;
 import com.example.quiz_selvtest.Sign_in.RegisterAct;
 import com.example.quiz_selvtest.Sign_in.StudentSigninAct;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

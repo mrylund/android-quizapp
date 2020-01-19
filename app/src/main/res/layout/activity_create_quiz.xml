@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.CreateQuizAct"
+    tools:context=".Quiz.CreateQuizAct"
     android:background="#D1DBED">
 
     <TextView
@@ -59,6 +59,7 @@
         android:text="@string/createquizbtn"
         android:textAllCaps="false"
         android:textSize="30sp"
+        android:onClick="createQuiz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

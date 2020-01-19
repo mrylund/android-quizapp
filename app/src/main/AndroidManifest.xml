@@ -18,6 +18,9 @@
             android:name=".Quiz.Quiz"
             android:screenOrientation="portrait" android:noHistory="true"/>
         <activity
+            android:name=".Quiz.CreateQuizAct"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Fragment.FragmentController"
             android:screenOrientation="portrait" />
         <activity
@@ -29,9 +32,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".Sign_in.NonStudentSigninAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Activity.CreateQuizAct"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Sign_in.StudentSigninAct"
@@ -47,8 +47,8 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
     </application>

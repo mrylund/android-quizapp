@@ -12,9 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.quiz_selvtest.Activity.CreateQuizAct;
+import com.example.quiz_selvtest.Quiz.CreateQuizAct;
 import com.example.quiz_selvtest.R;
 
 /**

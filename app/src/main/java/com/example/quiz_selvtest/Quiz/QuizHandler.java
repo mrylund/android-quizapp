@@ -4,17 +4,13 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class QuizHandler implements Serializable {
@@ -33,7 +29,7 @@ class QuizHandler implements Serializable {
 
     private CSVReader getCSV(String sheet) throws IOException {
             InputStream input = new URL("https://docs.google.com/spreadsheets/d/" + sheet + "/export?format=csv&id=" + sheet).openStream();
-            return new CSVReaderBuilder(new InputStreamReader(input, "UTF-8")).withSkipLines(8).build();
+            return new CSVReaderBuilder(new InputStreamReader(input, StandardCharsets.UTF_8)).withSkipLines(8).build();
     }
 
     private void initializeObjects(CSVReader reader) throws IOException, CsvValidationException {
