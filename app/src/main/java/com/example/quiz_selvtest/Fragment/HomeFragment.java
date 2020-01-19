@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.quiz_selvtest.Activity.CreateQuizAct;
 import com.example.quiz_selvtest.R;
 
 /**
@@ -21,11 +22,25 @@ import com.example.quiz_selvtest.R;
  */
 public class HomeFragment extends Fragment {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.homefragment,container,false);
-    }
+        View view = inflater.inflate(R.layout.homefragment,container,false);
+        ImageView createQuiz = view.findViewById(R.id.imageView10);
+        createQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CreateQuizAct.class);
+                startActivity(intent);
+            }
+        });
+        return view;
+    };
 
     /*public void createQuiz(View view){
 
