@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/your_profile"
         android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Your profile"/>
+        android:title="My profile"
+        />
 
     <item
         android:id="@+id/Home"
@@ -14,6 +14,7 @@
         />
     <item
         android:id="@+id/courses"
-        android:icon="@drawable/burgermenu"
-        android:title="My courses"/>
+        android:icon="@drawable/books"
+        android:title="My courses"
+        />
 </menu>

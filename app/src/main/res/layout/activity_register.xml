@@ -32,56 +32,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/join_title"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
     <EditText
         android:id="@+id/registerMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="@string/registerHint1"
+        android:hint="@string/registerHintMail"
+        android:background="@drawable/round_edges_button"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/register" />
 
-    <EditText
-        android:id="@+id/registerUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/registerHint2"
-        android:inputType="textPersonName"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerMail" />
 
     <EditText
         android:id="@+id/registerPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/round_edges_button"
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="@string/registerHint3"
+        android:hint="@string/registerHintPassword"
         android:inputType="textPassword"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/registerMail" />
 
     <EditText
         android:id="@+id/repeatPassword"
@@ -91,8 +88,9 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
         android:ems="10"
+        android:background="@drawable/round_edges_button"
         android:gravity="center"
-        android:hint="@string/registerHint4"
+        android:hint="@string/registerHintRepeatPassword"
         android:inputType="textPassword"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -102,16 +100,18 @@
 
     <Button
         android:id="@+id/registerButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/round_edges_button"
         android:stateListAnimator="@null"
         android:text="@string/registerBTN"
         android:textAllCaps="false"
-        android:textSize="35sp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/repeatPassword" />

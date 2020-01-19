@@ -17,11 +17,15 @@
     <string name="btn_myquiz">My Quizzes</string>
     <string name="btn_logout">Log Out</string>
     <string name="profil_desc">Profile picture</string>
-    <string name="registerHint1">Enter your e-mail</string>
-    <string name="registerHint2">username</string>
-    <string name="registerHint3">password</string>
-    <string name="registerHint4">repeat password</string>
-    <string name="registerBTN">Register!</string>
+    <string name="registerHintMail">enter your e-mail</string>
+    <string name="registerHintUsername">username</string>
+    <string name="registerHintPassword">password</string>
+    <string name="registerHintRepeatPassword">repeat password</string>
+    <string name="registerBTN">Register account</string>
+    <string name="registerAdditional">setup your profile</string>
+    <string name="forgotLoginDesc">forgot login info</string>
+    <string name="registerLanguage">choose language</string>
+    <string name="signUp">Finish</string>
 
     <string name="quizcode">Quiz Code</string>
     <string name="join_quiz">Join Quiz</string>
@@ -34,14 +38,14 @@
     <string name="studentsigninhint2">Student password</string>
     <string name="hejscreenlabelsignin">student sign in</string>
     <string name="createquizlabel">Create your quiz</string>
-    <string name="enterUrl">Enter url here</string>
+    <string name="enterUrl">enter url here</string>
     <string name="help">Help</string>
     <string name="createquizbtn">Create quiz</string>
     <string name="createQuizTXT">create quiz</string>
     <string name="quiz_answer_placeholder">Answer</string>
     <string name="quiz_question_placeholder">Question</string>
     <string name="forgotPWbutton">Forgot your password?</string>
-    <string name="submit">Submit!</string>
+    <string name="submit">Submit</string>
     <string name="question_number">%d of %d</string>
     <string name="logo">QUIZR</string>
 </resources>
