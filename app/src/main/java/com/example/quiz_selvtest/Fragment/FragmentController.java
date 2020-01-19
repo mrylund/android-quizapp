@@ -72,10 +72,14 @@ public class FragmentController extends AppCompatActivity {
                     return true;
 //                    break;
                 case R.id.your_profile:
-                    Intent intent = new Intent(FragmentController.this, ProfileAct.class);
-                    startActivity(intent);
+                    selectedF = new ProfileFragment();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
                     return true;
-//                    break;
+
+//                    Intent intent = new Intent(FragmentController.this, ProfileAct.class);
+//                    startActivity(intent);
+//                    return true;
+////                    break;
             }
             return false;
 
