@@ -45,7 +45,6 @@ public class RegisterAct extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         final EditText emailToValidate = findViewById(R.id.registerMail);
-        final EditText userNameToRegister = findViewById(R.id.registerUsername);
         final EditText passwordToRegister = findViewById(R.id.registerPassword);
         final EditText passwordToConfirm = findViewById(R.id.repeatPassword);
         ImageView goBack = findViewById(R.id.goBackBTN);
@@ -62,12 +61,11 @@ public class RegisterAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = emailToValidate.getText().toString().trim();
-                String userName = userNameToRegister.getText().toString().trim();
                 String password = passwordToRegister.getText().toString().trim();
                 String passwordConfirm = passwordToConfirm.getText().toString().trim();
                 //Hello
                 // TODO: 1/17/2020  Database kald til at tjekke om userName og email allerede eksistere i databasen
-                if(!email.matches(emailPattern) || email.isEmpty() || userName.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
+                if(!email.matches(emailPattern) || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
                     initCustomDialog("UH-OH! Error in field!","Please verify your inputs, and try again!");
                     return;
                 }
@@ -75,9 +73,7 @@ public class RegisterAct extends AppCompatActivity {
                 if(!password.matches(passwordConfirm)){
                     initCustomDialog("UH-OH! Password differs!","The passwords you have typed in, do not match each other");
                 }else{
-
                     createUser(email, password);
-                    //startActivity(new Intent(RegisterAct.this, FragmentController.class));
                 }
 
             }
@@ -108,6 +104,7 @@ public class RegisterAct extends AppCompatActivity {
 
     private void doUserRegistered(FirebaseUser user) {
         //TODO add stuff here :)
+        startActivity(new Intent(RegisterAct.this, RegisterUserInfo.class).putExtra("user",user));
     }
 
     public void initCustomDialog(String title, String description){

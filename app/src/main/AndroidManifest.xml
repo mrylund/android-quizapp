@@ -51,6 +51,9 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity android:name=".Sign_in.RegisterUserInfo"
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>

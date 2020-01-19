@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Sign_in.StudentSigninAct"
     android:background="#D1DBED">
-
-    <ImageView
-        android:id="@+id/goBackBTN"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_gravity="start"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="25dp"
-        android:contentDescription="@string/back_btn_desc"
-        android:src="@drawable/back_button2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/logo"
@@ -32,73 +19,86 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/quiz_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/hejscreenlabelsignin"
+        android:layout_marginTop="10dp"
+        android:text="@string/registerAdditional"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
+    <ImageView
+        android:id="@+id/profile_pic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quiz_desc"
+        android:contentDescription="Profile picture"
+        android:padding="2dp"
+        android:paddingStart="-20dp"
+        android:paddingEnd="-20dp"
+        android:src="@drawable/your_profile"
+        />
+
     <EditText
-        android:id="@+id/studentMail"
+        android:id="@+id/registerUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/round_edges_button"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="@string/studentsigninhint1"
+        android:inputType="textPersonName"
+        android:hint="@string/registerHintUsername"
+        android:textColor="#000000"
+        android:background="@drawable/round_edges_button"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+
+    <EditText
+        android:id="@+id/registerLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:textColor="#000000"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/studentPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
+        android:hint="language"
         android:background="@drawable/round_edges_button"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="@string/studentsigninhint2"
-        android:inputType="textPassword"
-        android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentMail" />
+        app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="200dp"
+        android:id="@+id/finish_signup"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/round_edges_button"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/green"
         android:stateListAnimator="@null"
-        android:text="@string/signin"
+        android:text="@string/signUp"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studentPass" />
+        app:layout_constraintTop_toBottomOf="@+id/registerLanguage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

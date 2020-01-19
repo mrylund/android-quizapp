@@ -57,6 +57,9 @@ public class NonStudentSigninAct extends AppCompatActivity {
 
                 if (!username.equals("") && !password.equals("")) {
                     signIn(username, password);
+                }else{
+                    Toast.makeText(NonStudentSigninAct.this, "Fill out the info, and try again.",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
