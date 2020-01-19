@@ -55,7 +55,9 @@ public class NonStudentSigninAct extends AppCompatActivity {
                 String username = usernameET.getText().toString();
                 String password = passwordET.getText().toString();
 
-                signIn(username, password);
+                if (!username.equals("") && !password.equals("")) {
+                    signIn(username, password);
+                }
             }
         });
 
