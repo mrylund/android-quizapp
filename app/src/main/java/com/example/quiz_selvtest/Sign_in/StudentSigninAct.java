@@ -20,7 +20,7 @@ public class StudentSigninAct extends AppCompatActivity {
         setContentView(R.layout.activity_student_signin);
 
         Button button1 = findViewById(R.id.button2);
-        ImageView goBackBTN = findViewById(R.id.goBackBTN3);
+        ImageView goBackBTN = findViewById(R.id.goBackBTN);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

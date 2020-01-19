@@ -12,21 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="100dp"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
         android:foregroundTint="@color/background"
         android:gravity="center"
-        android:inputType="text"
         android:hint="@string/quizcode"
-        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
-        android:textColor="#000000"
         android:imeOptions="actionGo"
+        android:inputType="text"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/logo"
@@ -53,31 +52,31 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <ImageView
-        android:id="@+id/goBackBTN9"
+        android:id="@+id/goBackBTN"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
         android:contentDescription="@string/back_btn_desc"
         android:src="@drawable/back_button2"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btn_join_quiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/round_edges_button"
+        android:onClick="joinQuiz"
         android:stateListAnimator="@null"
         android:text="@string/join_quiz"
-        android:onClick="joinQuiz"
         android:textAllCaps="false"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/round_edges_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/txt_joincode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

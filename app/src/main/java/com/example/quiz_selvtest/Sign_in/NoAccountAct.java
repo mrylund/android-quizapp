@@ -34,7 +34,7 @@ public class NoAccountAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_account);
-        ImageView goBackBTN = findViewById(R.id.goBackBTN9);
+        ImageView goBackBTN = findViewById(R.id.goBackBTN);
         Button btnJoin = findViewById(R.id.btn_join_quiz);
         joinCode = findViewById(R.id.txt_joincode);
 
