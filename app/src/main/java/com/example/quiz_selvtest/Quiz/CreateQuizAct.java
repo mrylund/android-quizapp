@@ -124,7 +124,7 @@ public class CreateQuizAct extends AppCompatActivity {
     }
 
 
-    private void isQuizCodeUnique(String code) {
+    private void isQuizCodeUnique(final String code) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference col = db.collection("Quizzes");
         Query query = col.whereEqualTo("ID", code);
