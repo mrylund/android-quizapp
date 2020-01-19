@@ -84,6 +84,8 @@ public class NonStudentSigninAct extends AppCompatActivity {
     }
 
     public void signIn(String email, String password) {
+
+        // Inspireret af: https://firebase.google.com/docs/auth/android/start/
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -94,6 +96,9 @@ public class NonStudentSigninAct extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(NonStudentSigninAct.this, "Authentication Success!",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(NonStudentSigninAct.this, FragmentController.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
