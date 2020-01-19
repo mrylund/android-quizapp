@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/cardview_light_background"
+        android:background="#FFFFFF"
         app:menu="@menu/bottom_navigation"
         app:itemIconSize="35dp"/>
 

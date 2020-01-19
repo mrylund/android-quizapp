@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -60,20 +61,24 @@ public class FragmentController extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             Fragment selectedF;
+            backButtonCount = 0;
             switch (menuItem.getItemId()){
                 case R.id.Home:
                     selectedF = new HomeFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
                     return true;
 //                    break;
                 case R.id.courses:
                     selectedF = new My_coursesFrag();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
                     return true;
 //                    break;
                 case R.id.your_profile:
                     selectedF = new ProfileFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#000000"));
                     return true;
 
 //                    Intent intent = new Intent(FragmentController.this, ProfileAct.class);
@@ -82,7 +87,6 @@ public class FragmentController extends AppCompatActivity {
 ////                    break;
             }
             return false;
-
         }
     };
 
