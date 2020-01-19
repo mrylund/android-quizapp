@@ -85,6 +85,8 @@ public class RegisterAct extends AppCompatActivity {
     }
 
     public void createUser(String email, String password) {
+
+        // Inspireret af: https://firebase.google.com/docs/auth/android/start/
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
