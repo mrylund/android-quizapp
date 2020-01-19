@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.quiz_selvtest.Fragment.FragmentController;
 import com.example.quiz_selvtest.R;
 import com.example.quiz_selvtest.Sign_in.ForgotPWAct;
 import com.example.quiz_selvtest.Sign_in.NoAccountAct;
@@ -15,11 +16,14 @@ import com.example.quiz_selvtest.Sign_in.NonStudentSigninAct;
 import com.example.quiz_selvtest.Sign_in.RegisterAct;
 import com.example.quiz_selvtest.Sign_in.StudentSigninAct;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class StartScreenAct extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,9 @@ public class StartScreenAct extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReferenceFromUrl("https://quizr-c3c3b.firebaseio.com/");
 
-        //Test save
-        myRef.setValue("Hello, World!");
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
 
         setContentView(R.layout.activity_startscreen);
 
@@ -66,6 +71,19 @@ public class StartScreenAct extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(StartScreenAct.this, FragmentController.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+        }
     }
 
 
