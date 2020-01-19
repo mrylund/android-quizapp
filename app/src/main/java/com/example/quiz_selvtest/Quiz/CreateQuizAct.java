@@ -89,6 +89,7 @@ public class CreateQuizAct extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
 
+            //TODO tilføj en bedre måde at notify brugeren på, og fortæl dem hvilken kode deres Quiz har fået
             if (s.equals("Success")) {
                 Toast.makeText(CreateQuizAct.this, "Your Quiz code is: " + code,
                         Toast.LENGTH_SHORT).show();
