@@ -13,8 +13,7 @@
     </style>
 
     <style name="CustomButton" parent="Widget.AppCompat.Button">
-        <item name="android:background">@drawable/round_edges_button</item>
-        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:background">@drawable/button_shape</item>
         <item name="android:showAsAction">ifRoom</item>
     </style>
 

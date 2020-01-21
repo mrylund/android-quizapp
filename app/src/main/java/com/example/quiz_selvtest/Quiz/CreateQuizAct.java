@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -176,15 +177,13 @@ public class CreateQuizAct extends AppCompatActivity {
             }
 
             if (answers.size() < 2) {
-                Toast.makeText(CreateQuizAct.this, "Question " + (tempQuestions.size() + 1) + " does not have at least 2 answers!",
-                        Toast.LENGTH_SHORT).show();
+                showToast("Question " + (tempQuestions.size() + 1) + " does not have at least 2 answers!");
                 return false;
             }
 
             int tid;
             if (line[6].equals("")) {
-                Toast.makeText(CreateQuizAct.this, "Question " + (tempQuestions.size() + 1) + " does not have a time limit set!",
-                        Toast.LENGTH_SHORT).show();
+                showToast("Question " + (tempQuestions.size() + 1) + " does not have a time limit set!");
                 return false;
             } else {
                 tid = Integer.parseInt(line[6]);
@@ -197,8 +196,7 @@ public class CreateQuizAct extends AppCompatActivity {
             }
 
             if (correct.length < 1) {
-                Toast.makeText(CreateQuizAct.this, "Question " + (tempQuestions.size() + 1) + " does not have any correct answer!",
-                        Toast.LENGTH_SHORT).show();
+                showToast( "Question " + (tempQuestions.size() + 1) + " does not have any correct answer!");
                 return false;
             }
 
@@ -207,12 +205,18 @@ public class CreateQuizAct extends AppCompatActivity {
             tempQuestions.add(q);
         }
         if (tempQuestions.size() < 2) {
-            Toast.makeText(CreateQuizAct.this, "You must have at least 2 questions to create a quiz!",
-                    Toast.LENGTH_SHORT).show();
+            showToast("You must have at least 2 questions to create a quiz!");
             return false;
         }
 
         return true;
+    }
+
+
+    // Method found at: https://stackoverflow.com/a/12897386
+    public void showToast(final String toast)
+    {
+        runOnUiThread(() -> Toast.makeText(CreateQuizAct.this, toast, Toast.LENGTH_SHORT).show());
     }
 
     private String getSheetID(String url) {
