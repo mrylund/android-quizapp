@@ -48,7 +48,7 @@ public class ProfileFragment extends Fragment {
         return v;
     }
 
-    public void loadUserData(View v) {
+    public void loadUserData(final View v) {
         super.onStart();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;

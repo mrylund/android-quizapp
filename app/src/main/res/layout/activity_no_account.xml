@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Sign_in.NoAccountAct"
-    android:background="#D1DBED">
+    android:background="@color/background">
 
     <ImageView
         android:id="@+id/goBackBTN"
@@ -53,7 +53,6 @@
         android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
         android:background="@drawable/round_edges_button"
-        android:foregroundTint="@color/background"
         android:gravity="center"
         android:hint="@string/quizcode"
         android:imeOptions="actionGo"

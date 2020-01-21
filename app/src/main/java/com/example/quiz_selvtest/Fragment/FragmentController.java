@@ -2,30 +2,50 @@ package com.example.quiz_selvtest.Fragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.quiz_selvtest.Activity.ProfileAct;
 import com.example.quiz_selvtest.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class FragmentController extends AppCompatActivity {
     int backButtonCount = 0;
+    Context context = this;
     BottomNavigationView bottomnav;
+    static int[][] states = new int[][] {
+            new int[] {android.R.attr.state_checked},//checked
+            new int[] {-android.R.attr.state_checked} // unchecked
+    };
 
+    static int[] colors = new int[] {
+            Color.BLACK,
+            Color.GRAY,
+
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-        backButtonCount = 0;
-
+        changeIconTint(R.drawable.profile,R.color.black);
+        changeIconTint(R.drawable.books,R.color.colorPrimaryDark);
+        changeIconTint(R.drawable.homelogo,R.color.darkGrey);
+        ColorStateList colorList = new ColorStateList(states, colors);
         bottomnav = findViewById(R.id.bottom_navigation);
         bottomnav.setSelectedItemId(R.id.Home);
+        bottomnav.setItemTextColor(colorList);
+        backButtonCount = 0;
+
+
         bottomnav.setOnNavigationItemSelectedListener(navlistner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
     }
@@ -60,34 +80,55 @@ public class FragmentController extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navlistner = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
             Fragment selectedF;
             backButtonCount = 0;
             switch (menuItem.getItemId()){
                 case R.id.Home:
                     selectedF = new HomeFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    //changeIconTint(R.drawable.profile,R.color.dark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    return true;
-//                    break;
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    //return true;
+                    break;
                 case R.id.courses:
                     selectedF = new My_coursesFrag();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    //changeIconTint(R.drawable.books,R.color.colorPrimaryDark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    return true;
-//                    break;
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    //return true;
+                    break;
                 case R.id.your_profile:
                     selectedF = new ProfileFragment();
+                    //changeIconTint(R.drawable.profile,  R.color.dark);
+                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.WHITE);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
-                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#000000"));
-                    return true;
-
-//                    Intent intent = new Intent(FragmentController.this, ProfileAct.class);
-//                    startActivity(intent);
-//                    return true;
-////                    break;
+                    break;
+                    //return true;
             }
-            return false;
+            return true;
         }
     };
 
+    public void changeIconTint( int drawableRes1, int colorRes){
+       /* int drawableRes2, int drawableRes3,*/
+        Drawable drawable1 = ContextCompat.getDrawable(context,drawableRes1);
+        assert drawable1 != null;
+        drawable1.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);
+
+       /* Drawable drawable2 = ContextCompat.getDrawable(context,drawableRes2);
+        assert drawable2 != null;
+        drawable2.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);
+
+        Drawable drawable3 = ContextCompat.getDrawable(context,drawableRes3);
+        assert drawable3 != null;
+        drawable3.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);*/
+
+    }
+
+    public void changeIconTitleColor(){
+        /* Fået inspiration herfra: https://stackoverflow.com/questions/15543186/how-do-i-create-colorstatelist-programmatically*/
+        bottomnav.getSelectedItemId();
+
+    }
 }

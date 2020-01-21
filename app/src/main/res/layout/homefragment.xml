@@ -1,21 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#D1DBED">
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/greyscale"
+        android:textColor="@color/logoColor"
+        android:text="@string/logo"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_joincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="75dp"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+        android:ems="10"
+        android:background="@drawable/round_edges_button"
+        android:foregroundTint="@color/background"
+        android:gravity="center"
+        android:hint="@string/quizcode"
+        android:imeOptions="actionGo"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <Button
+        android:id="@+id/btn_join_quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_edges_button"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:onClick="joinQuiz"
+        android:stateListAnimator="@null"
+        android:text="@string/join_quiz"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_joincode" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="127dp"
-        android:layout_height="122dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="false"
-        android:layout_marginStart="120dp"
+        android:id="@+id/homescreenseperator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_join_quiz"
+        app:srcCompat="@drawable/separator" />
+
+    <ImageView
+        android:id="@+id/createQuizICON"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginEnd="120dp"
         android:layout_marginBottom="118dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="30dp"
         android:tint="@color/white"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homescreenseperator"
         app:srcCompat="@drawable/ic_add_circle_black_24dp" />
 
     <TextView
@@ -28,6 +96,10 @@
         android:layout_marginStart="0dp"
         android:layout_marginBottom="92dp"
         android:text="@string/createQuizTXT"
+        android:textStyle="bold"
         android:textAlignment="center"
-        android:textSize="25sp" />
-</RelativeLayout>
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/createQuizICON"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

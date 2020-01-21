@@ -3,13 +3,13 @@
 
     <item
         android:id="@+id/your_profile"
-        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:icon="@drawable/profile"
         android:title="My profile"
         />
 
     <item
         android:id="@+id/Home"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/homelogo"
         android:title="Home"
         />
     <item

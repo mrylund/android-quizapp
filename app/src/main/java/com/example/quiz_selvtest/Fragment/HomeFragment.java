@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.quiz_selvtest.Quiz.CreateQuizAct;
@@ -29,7 +30,9 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.homefragment,container,false);
-        ImageView createQuiz = view.findViewById(R.id.imageView10);
+        ImageView createQuiz = view.findViewById(R.id.createQuizICON);
+        EditText joinQuizURL = view.findViewById(R.id.joinAGame);
+
         createQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
