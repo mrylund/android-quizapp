@@ -1,10 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray">
 
+    <TextView
+        android:id="@+id/JoinCourseTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/joinCouseTITLE"
+        android:textAlignment="center"
+        android:textSize="35sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
 
+        />
+    <LinearLayout
+        android:id="@+id/linLayoutJoinCourse"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/JoinCourseTitle"
+        >
 
+        <EditText
+            android:id="@+id/courseIDInput"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:hint="@string/courseIDTXT"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:background="@color/white"
+            android:layout_marginEnd="10dp"
+            />
 
+        <Button
+            android:id="@+id/joinCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/joinCourseBTN_TXT"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:background="@color/green"
+            android:textColorHint="@color/white"
+            android:layout_marginEnd="25dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/linLayoutJoinCourse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:text="MY COURSES"
+        />
     
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
