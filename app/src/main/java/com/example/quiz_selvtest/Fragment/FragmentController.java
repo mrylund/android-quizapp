@@ -45,7 +45,6 @@ public class FragmentController extends AppCompatActivity {
         bottomnav.setItemTextColor(colorList);
         backButtonCount = 0;
 
-
         bottomnav.setOnNavigationItemSelectedListener(navlistner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
     }

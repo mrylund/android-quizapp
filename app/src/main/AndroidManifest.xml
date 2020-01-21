@@ -37,12 +37,6 @@
             android:name=".Sign_in.StudentSigninAct"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activity.SettingsAct"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".Activity.ProfileAct"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Activity.StartScreenAct"
             android:screenOrientation="portrait">
             <intent-filter>
