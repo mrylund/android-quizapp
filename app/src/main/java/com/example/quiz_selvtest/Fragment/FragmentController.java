@@ -53,10 +53,13 @@ public class FragmentController extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
-        if (bottomnav.getSelectedItemId() != R.id.Home) {
-            Fragment selectedF = new HomeFragment();
-            bottomnav.setSelectedItemId(R.id.Home);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        getSupportFragmentManager().executePendingTransactions();
+        System.out.println("ANTAL: " + getSupportFragmentManager().getBackStackEntryCount());
+        if (getSupportFragmentManager().getBackStackEntryCount() >= 1) {
+            getSupportFragmentManager().popBackStackImmediate();
+//            Fragment selectedF = new HomeFragment();
+//            bottomnav.setSelectedItemId(R.id.Home);
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
             return;
         }
 
@@ -67,7 +70,6 @@ public class FragmentController extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             backButtonCount = 0;
-            //android.os.Process.killProcess(android.os.Process.myPid());
         }
         else
         {
@@ -79,29 +81,36 @@ public class FragmentController extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navlistner = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
+            String name;
             Fragment selectedF;
             backButtonCount = 0;
             switch (menuItem.getItemId()){
                 case R.id.Home:
                     selectedF = new HomeFragment();
+                    name = "1";
+                    getSupportFragmentManager().popBackStack(name, 1);
+
                     //changeIconTint(R.drawable.profile,R.color.dark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
                     //return true;
                     break;
                 case R.id.courses:
                     selectedF = new My_coursesFrag();
+                    name = "2";
+                    //getSupportFragmentManager().popBackStack(name, 1);
                     //changeIconTint(R.drawable.books,R.color.colorPrimaryDark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
                     //return true;
                     break;
                 case R.id.your_profile:
                     selectedF = new ProfileFragment();
+                    name = "3";
+                    //getSupportFragmentManager().popBackStack(name, 1);
                     //changeIconTint(R.drawable.profile,  R.color.dark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.WHITE);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
                     break;
                     //return true;
             }
