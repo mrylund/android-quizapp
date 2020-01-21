@@ -6,14 +6,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.quiz_selvtest.Activity.StartScreenAct;
+import com.example.quiz_selvtest.Fragment.my_quizzes.MyQuiz;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,6 +47,18 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button myQuizzes = v.findViewById(R.id.MyQuizzes);
+
+        myQuizzes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                assert fragmentManager != null;
+                fragmentManager.beginTransaction().replace(R.id.fragment_container,new MyQuiz()).addToBackStack(null).commit();
+            }
+        });
+
         loadUserData(v);
 
         return v;
