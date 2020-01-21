@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:background="@drawable/round_edges_button"/>
+        android:background="@drawable/button_shape"/>
 
     <Button
         android:id="@+id/profile_btn2"
@@ -81,5 +81,5 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_btn1"
-        android:background="@drawable/round_edges_button"/>
+        android:background="@drawable/button_shape"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
