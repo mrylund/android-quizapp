@@ -103,7 +103,6 @@ public class RegisterAct extends AppCompatActivity {
     }
 
     private void doUserRegistered(FirebaseUser user) {
-        //TODO add stuff here :)
         startActivity(new Intent(RegisterAct.this, RegisterUserInfo.class).putExtra("user",user));
     }
 
