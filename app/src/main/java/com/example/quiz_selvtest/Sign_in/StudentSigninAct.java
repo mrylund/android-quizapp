@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.quiz_selvtest.Fragment.FragmentController;
 import com.example.quiz_selvtest.Activity.StartScreenAct;
@@ -25,7 +26,9 @@ public class StudentSigninAct extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent(StudentSigninAct.this, FragmentController.class));
+                Toast.makeText(StudentSigninAct.this, "Denne funktion er ikke implementeret endnu, kommer i en senere version.",
+                        Toast.LENGTH_LONG).show();
+                //startActivity( new Intent(StudentSigninAct.this, FragmentController.class));
             }
         });
         goBackBTN.setOnClickListener(new View.OnClickListener() {
