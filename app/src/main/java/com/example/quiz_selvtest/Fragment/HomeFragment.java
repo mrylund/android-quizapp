@@ -33,7 +33,6 @@ import java.util.Objects;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,11 +42,10 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.homefragment,container,false);
-        ImageView createQuiz = view.findViewById(R.id.createQuizICON);
-        EditText joinQuizURL = view.findViewById(R.id.joinAGame);
-        EditText joinCode = view.findViewById(R.id.txt_joincode);
-        Button joinBtn = view.findViewById(R.id.btn_join_quiz);
+        View view = inflater.inflate(R.layout.homefragment, container, false);
+        ImageView createQuiz = view.findViewById(R.id.createQuiz);
+        EditText joinCode = view.findViewById(R.id.txtJoinCode);
+        Button joinBtn = view.findViewById(R.id.btnJoinQuiz);
 
         createQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +65,8 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    public void joinQuiz(String pw) {
+    private void joinQuiz(String pw) {
+        // Initializer Firebase Database instance and make a query to get the quiz from the QuizID
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference col = db.collection("Quizzes");
         Query query = col.whereEqualTo("ID", pw);
@@ -78,21 +77,14 @@ public class HomeFragment extends Fragment {
                 if (task.isSuccessful()) {
                     List<DocumentSnapshot> documents = Objects.requireNonNull(task.getResult()).getDocuments();
                     if (documents.size() < 1) return;
+                    // Get the document containing the sheetID and pass it on to the next activity
                     DocumentSnapshot document = documents.get(0);
                     Intent intent = new Intent(act, Quiz.class);
-
                     String sheet = (String)document.get("Sheet");
-
                     intent.putExtra("sheet", sheet);
                     startActivity(intent);
                 }
             }
         });
     }
-
-    /*public void createQuiz(View view){
-
-        startActivity(new Intent(HomeFragment.this, CreateQuizAct.class));
-
-    }*/
 }

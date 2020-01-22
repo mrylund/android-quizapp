@@ -59,4 +59,5 @@
     <string name="slet_quiz_knap">Slet quiz knap</string>
     <string name="my_profile">My profile</string>
     <string name="home">Home</string>
+    <string name="create_quiz">Create Quiz</string>
 </resources>

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_joincode"
+        android:id="@+id/txtJoinCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -37,10 +37,10 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/logo"/>
 
     <Button
-        android:id="@+id/btn_join_quiz"
+        android:id="@+id/btnJoinQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -54,21 +54,22 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_joincode" />
+        app:layout_constraintTop_toBottomOf="@+id/txtJoinCode" />
 
     <ImageView
-        android:id="@+id/homescreenseperator"
+        android:id="@+id/separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_join_quiz"
-        app:srcCompat="@drawable/separator" />
+        app:layout_constraintTop_toBottomOf="@+id/btnJoinQuiz"
+        app:srcCompat="@drawable/separator"
+        android:contentDescription="@string/separator" />
 
     <ImageView
-        android:id="@+id/createQuizICON"
+        android:id="@+id/createQuiz"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginEnd="120dp"
@@ -81,11 +82,12 @@
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/homescreenseperator"
-        app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+        app:layout_constraintTop_toBottomOf="@id/separator"
+        app:srcCompat="@drawable/ic_add_circle_black_24dp"
+        android:contentDescription="@string/create_quiz" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCreateQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -97,7 +99,7 @@
         android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="25sp"
-        app:layout_constraintTop_toBottomOf="@id/createQuizICON"
+        app:layout_constraintTop_toBottomOf="@id/createQuiz"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
