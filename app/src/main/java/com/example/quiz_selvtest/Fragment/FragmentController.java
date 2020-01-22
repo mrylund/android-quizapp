@@ -30,21 +30,27 @@ public class FragmentController extends AppCompatActivity {
     static int[] colors = new int[] {
             Color.BLACK,
             Color.GRAY,
-
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-        changeIconTint(R.drawable.profile,R.color.black);
-        changeIconTint(R.drawable.books,R.color.colorPrimaryDark);
+        backButtonCount = 0;
+
+        // Change color on all the icons in the bottom navigation menu
+        changeIconTint(R.drawable.profile,R.color.darkGrey);
+        changeIconTint(R.drawable.books,R.color.darkGrey);
         changeIconTint(R.drawable.homelogo,R.color.darkGrey);
+
+        // Change color on the text in the bottom navigation menu
         ColorStateList colorList = new ColorStateList(states, colors);
+
+        // Change what menu item that is selected
         bottomnav = findViewById(R.id.bottom_navigation);
         bottomnav.setSelectedItemId(R.id.Home);
         bottomnav.setItemTextColor(colorList);
-        backButtonCount = 0;
 
+        // Set navigation listener and set the fragment
         bottomnav.setOnNavigationItemSelectedListener(navlistner);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
     }
@@ -53,16 +59,19 @@ public class FragmentController extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
+        //TODO: Make it properly select the menu items - currently it doesn't change selected state.
+
+        // Update the fragment stack, incase something has not been pushed yet
         getSupportFragmentManager().executePendingTransactions();
-        System.out.println("ANTAL: " + getSupportFragmentManager().getBackStackEntryCount());
+
+        // Pop the backstack
         if (getSupportFragmentManager().getBackStackEntryCount() >= 1) {
             getSupportFragmentManager().popBackStackImmediate();
-//            Fragment selectedF = new HomeFragment();
-//            bottomnav.setSelectedItemId(R.id.Home);
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
             return;
         }
 
+        // If you press the back button when nothing is in the backstack, notify the user if they press
+        // back again it will close the app.
         if(backButtonCount >= 1)
         {
             Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -81,62 +90,40 @@ public class FragmentController extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navlistner = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            String name;
-            Fragment selectedF;
+            String name = "1";
+            Fragment selectedF = new HomeFragment();
             backButtonCount = 0;
-            switch (menuItem.getItemId()){
+
+            // Switch on the menu item, then set the data for the item
+            switch (menuItem.getItemId()) {
                 case R.id.Home:
                     selectedF = new HomeFragment();
                     name = "1";
-                    getSupportFragmentManager().popBackStack(name, 1);
-
-                    //changeIconTint(R.drawable.profile,R.color.dark);
-                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
-                    //return true;
                     break;
                 case R.id.courses:
                     selectedF = new My_coursesFrag();
                     name = "2";
-                    //getSupportFragmentManager().popBackStack(name, 1);
-                    //changeIconTint(R.drawable.books,R.color.colorPrimaryDark);
-                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
-                    //return true;
                     break;
                 case R.id.your_profile:
                     selectedF = new ProfileFragment();
                     name = "3";
-                    //getSupportFragmentManager().popBackStack(name, 1);
-                    //changeIconTint(R.drawable.profile,  R.color.dark);
-                    findViewById(R.id.bottom_navigation).setBackgroundColor(Color.WHITE);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
                     break;
-                    //return true;
             }
+
+            // Mulighed for at pop backstack for at undgå uendelig mange af de samme fragmenter i stack.
+            // Fejl med at ullige antal i backstack ikke tracker.
+            //getSupportFragmentManager().popBackStack(name, 1);
+
+            // Opdater fragment
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
             return true;
         }
     };
 
-    public void changeIconTint( int drawableRes1, int colorRes){
-       /* int drawableRes2, int drawableRes3,*/
-        Drawable drawable1 = ContextCompat.getDrawable(context,drawableRes1);
-        assert drawable1 != null;
-        drawable1.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);
-
-       /* Drawable drawable2 = ContextCompat.getDrawable(context,drawableRes2);
-        assert drawable2 != null;
-        drawable2.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);
-
-        Drawable drawable3 = ContextCompat.getDrawable(context,drawableRes3);
-        assert drawable3 != null;
-        drawable3.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);*/
-
-    }
-
-    public void changeIconTitleColor(){
-        /* Fået inspiration herfra: https://stackoverflow.com/questions/15543186/how-do-i-create-colorstatelist-programmatically*/
-        bottomnav.getSelectedItemId();
-
+    // Change the color of the icon
+    public void changeIconTint( int iconNum, int colorRes){
+        Drawable icon = ContextCompat.getDrawable(context,iconNum);
+        assert icon != null;
+        icon.setColorFilter(ContextCompat.getColor(context,colorRes), PorterDuff.Mode.SRC_IN);
     }
 }
