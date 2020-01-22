@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -50,16 +49,20 @@ public class CreateQuizAct extends AppCompatActivity {
     }
 
     public void createQuiz(View v) {
-
-        EditText urlET = findViewById(R.id.enterUrl);
+        EditText urlET = findViewById(R.id.txtURL);
         String url = urlET.getText().toString();
+
+        // Remove https or http from the link
         url = url.replace("https://","").replace("http://","");
 
+        // Check if the link URL starts like a google spreadsheet
         if (!url.startsWith("docs.google.com/spreadsheets/d/")) {
             Toast.makeText(CreateQuizAct.this, "This is not a google spreadsheet!",
                     Toast.LENGTH_SHORT).show();
             return;
         }
+
+        // Retrieve the sheetID
         String sheet = getSheetID(url);
 
         new createQuiz(sheet).execute();
@@ -74,13 +77,14 @@ public class CreateQuizAct extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... strings) {
-
             try {
+                // Try to validate the sheet, this checks if all fields are filled in
                 if (!validateSheet(sheet)) return "Fail";
             } catch (IOException | CsvValidationException e) {
                 e.printStackTrace();
             }
 
+            // Generate a quiz code and check if it is unique
             code = generateQuizCode();
             isQuizCodeUnique(code);
 
@@ -90,7 +94,7 @@ public class CreateQuizAct extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
 
-            //TODO tilføj en bedre måde at notify brugeren på, og fortæl dem hvilken kode deres Quiz har fået
+            //TODO Make a better way to notify a user with their quiz code, when the quiz code has been generated.
             if (s.equals("Success")) {
                 Toast.makeText(CreateQuizAct.this, "Your Quiz code is: " + code,
                         Toast.LENGTH_SHORT).show();
@@ -101,6 +105,9 @@ public class CreateQuizAct extends AppCompatActivity {
     private void addSheetToDatabase(String uID, String sheet, String code) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+        // Make a map with all the values that is needed
+        // TODO: Insert a course for the quiz, when courses has been implemented
+        // TODO: Insert a name for a quiz, could use the sheet name?
         Map<String, Object> quiz = new HashMap<>();
         quiz.put("Course", null);
         quiz.put("Creator", uID);
@@ -126,6 +133,8 @@ public class CreateQuizAct extends AppCompatActivity {
 
 
     private void isQuizCodeUnique(final String code) {
+
+        // Query to check if the quiz code already exists
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference col = db.collection("Quizzes");
         Query query = col.whereEqualTo("ID", code);
@@ -135,6 +144,7 @@ public class CreateQuizAct extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     List<DocumentSnapshot> documents = Objects.requireNonNull(task.getResult()).getDocuments();
+                    // If quiz code is unique, add it to the database, else generate a new code
                     if (documents.size() < 1 || documents.get(0).getMetadata().hasPendingWrites()) {
                         String uID = FirebaseAuth.getInstance().getUid();
                         addSheetToDatabase(uID, sheet, code);
@@ -149,6 +159,7 @@ public class CreateQuizAct extends AppCompatActivity {
     }
 
     private String generateQuizCode() {
+        // Make a random quiz code containing Alphanumeric characters, and make it 6 characters long
         final String possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         StringBuilder code = new StringBuilder();
         for (int i = 0; i < 6; i++) {
@@ -160,13 +171,16 @@ public class CreateQuizAct extends AppCompatActivity {
     }
 
     private boolean validateSheet(String sheet) throws IOException, CsvValidationException {
+        // Get the google sheet as a csv file and make a new CSV reader to read the file
         InputStream input = new URL("https://docs.google.com/spreadsheets/d/" + sheet + "/export?format=csv&id=" + sheet).openStream();
         CSVReader reader = new CSVReaderBuilder(new InputStreamReader(input, StandardCharsets.UTF_8)).withSkipLines(8).build();
 
         List<Question> tempQuestions = new ArrayList<>();
         String[] line;
+
+        // Loop through lines in the CSV file until no lines are left
         while ((line = reader.readNext()) != null) {
-            if (line[1].equals("")) break;
+            if (line[1].equals("")) break; // If the question field is empty, quit the while loop.
             String question = line[1];
             List<String> answers = new ArrayList<>();
 
@@ -176,11 +190,13 @@ public class CreateQuizAct extends AppCompatActivity {
                 }
             }
 
+            // Check if the question has at least two answers
             if (answers.size() < 2) {
                 showToast("Question " + (tempQuestions.size() + 1) + " does not have at least 2 answers!");
                 return false;
             }
 
+            // Check if the time is set
             int tid;
             if (line[6].equals("")) {
                 showToast("Question " + (tempQuestions.size() + 1) + " does not have a time limit set!");
@@ -189,21 +205,25 @@ public class CreateQuizAct extends AppCompatActivity {
                 tid = Integer.parseInt(line[6]);
             }
 
+            // Save all correct answers
             String[] correctString = line[7].split(",");
             int[] correct = new int[correctString.length];
             for(int i = 0; i < correctString.length; i++) {
                 correct[i] =  Integer.parseInt(correctString[i]);
             }
 
+            // Check if the question has at least 1 correct answer
             if (correct.length < 1) {
                 showToast( "Question " + (tempQuestions.size() + 1) + " does not have any correct answer!");
                 return false;
             }
 
+            // Create the question object with the gathered information and add it to the question list
             Question q = new Question(question, answers, correct);
-
             tempQuestions.add(q);
         }
+
+        // Check if the quiz has at least 2 questions specified
         if (tempQuestions.size() < 2) {
             showToast("You must have at least 2 questions to create a quiz!");
             return false;
@@ -216,9 +236,11 @@ public class CreateQuizAct extends AppCompatActivity {
     // Method found at: https://stackoverflow.com/a/12897386
     public void showToast(final String toast)
     {
+        // Run a toast on the UI thread
         runOnUiThread(() -> Toast.makeText(CreateQuizAct.this, toast, Toast.LENGTH_SHORT).show());
     }
 
+    // Get a sheet ID from a full URL
     private String getSheetID(String url) {
         url = url.substring(url.indexOf("/d/")+3);
         url = url.substring(0, url.indexOf("/"));
