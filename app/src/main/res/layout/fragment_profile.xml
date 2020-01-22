@@ -22,7 +22,7 @@
         android:id="@+id/shade"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:alpha="0.9"
+        android:alpha="0.8"
         android:background="#070707"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="-63dp" />

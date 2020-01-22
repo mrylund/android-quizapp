@@ -92,7 +92,7 @@ public class FragmentController extends AppCompatActivity {
 
                     //changeIconTint(R.drawable.profile,R.color.dark);
                     findViewById(R.id.bottom_navigation).setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedF).addToBackStack(name).commit();
                     //return true;
                     break;
                 case R.id.courses:
