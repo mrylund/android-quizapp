@@ -72,4 +72,6 @@
     <string name="helpText">1) Fill out this template:</string>
     <string name="templateLink"><a href="https://drive.google.com/open?id=1GRdDiwOkE3BNxpC1cSLRTlle8ixTWuskk_blkwfla4A">Quiz Template</a></string>
     <string name="helpText2">2) Click share and copy the link into the Create Quiz form</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="language">language</string>
 </resources>

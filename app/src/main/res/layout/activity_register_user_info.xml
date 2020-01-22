@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/quiz_desc"
+        android:id="@+id/txtSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <ImageView
-        android:id="@+id/profile_pic"
+        android:id="@+id/imgProfilepic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="50dp"
@@ -39,8 +39,8 @@
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quiz_desc"
-        android:contentDescription="Profile picture"
+        app:layout_constraintTop_toBottomOf="@id/txtSubTitle"
+        android:contentDescription="@string/profile_picture"
         android:padding="2dp"
         android:paddingStart="-20dp"
         android:paddingEnd="-20dp"
@@ -48,13 +48,14 @@
         />
 
     <EditText
-        android:id="@+id/registerUsername"
+        android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:gravity="center"
         android:inputType="textPersonName"
         android:hint="@string/registerHintUsername"
@@ -63,28 +64,29 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfilepic" />
 
     <EditText
-        android:id="@+id/registerLanguage"
+        android:id="@+id/txtLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
+        android:importantForAutofill="no"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:textColor="#000000"
-        android:hint="language"
+        android:hint="@string/language"
         android:background="@drawable/button_shape"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
     <Button
-        android:id="@+id/finish_signup"
+        android:id="@+id/btnFinish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -99,6 +101,6 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
