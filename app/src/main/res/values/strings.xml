@@ -50,5 +50,6 @@
     <string name="logo">QUIZR</string>
     <string name="courseIDTXT">Course ID</string>
     <string name="joinCourseBTN_TXT">Join</string>
-    <string name="joinCourseTITLE">JOIN NEW COURSE</string>
+    <string name="joinCourseTITLE">Join new course</string>
+    <string name="my_courses">My courses</string>
 </resources>

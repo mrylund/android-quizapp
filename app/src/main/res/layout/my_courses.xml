@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/gray">
+    android:background="@color/background">
 
     <TextView
         android:id="@+id/JoinCourseTitle"
@@ -13,7 +13,7 @@
         android:textAlignment="center"
         android:textSize="35sp"
         android:layout_marginTop="50dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +65,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="35sp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textAlignment="center"
-        android:text="MY COURSES"
+        android:text="@string/my_courses"
         />
     
 </androidx.constraintlayout.widget.ConstraintLayout>
