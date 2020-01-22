@@ -1,7 +1,6 @@
 package com.example.quiz_selvtest.Fragment;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.Fragment.my_quizzes.MyQuiz;
@@ -26,11 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.Objects;
 
 public class ProfileFragment extends Fragment {
     @Nullable
@@ -38,6 +32,8 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile,container,false);
         ImageView logOut = v.findViewById(R.id.logOut);
+        Button myQuizzes = v.findViewById(R.id.btnMyQuizzes);
+
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +44,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        Button myQuizzes = v.findViewById(R.id.MyQuizzes);
 
         myQuizzes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,15 +54,19 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // Load the user data from Firebase
         loadUserData(v);
 
         return v;
     }
 
-    public void loadUserData(final View v) {
-        super.onStart();
+    private void loadUserData(final View v) {
+        // Get the current logged in user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         assert user != null;
+
+        // Query to get the user document containing the users data
+        // TODO: Save the userdata in Sharedpreference to avoid querying the database everytime a user loads profile
         DocumentReference userInfo = FirebaseFirestore.getInstance().collection("Users").document(user.getUid());
         userInfo.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -79,18 +78,6 @@ public class ProfileFragment extends Fragment {
                         TextView userName = v.findViewById(R.id.txtUsername);
                         userName.setText((String) document.get("Username"));
                     }
-                }
-            }
-        });
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Query q = db.collection("Quizzes").whereEqualTo("Creator", user.getUid());
-        q.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if (task.isSuccessful()) {
-
-                    TextView quizzes = v.findViewById(R.id.InfoNumber2);
                 }
             }
         });

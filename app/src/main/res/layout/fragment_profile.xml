@@ -16,7 +16,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/test_back" />
+        app:srcCompat="@drawable/test_back"
+        android:contentDescription="@string/background_image" />
 
     <View
         android:id="@+id/shade"
@@ -39,7 +40,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign_out"
         android:clickable="true"
-        android:focusable="true"/>
+        android:focusable="true"
+        android:contentDescription="@string/log_out"/>
 
     <ImageView
         android:id="@+id/Settings"
@@ -50,7 +52,8 @@
         android:tint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settings" />
+        app:srcCompat="@drawable/settings"
+        android:contentDescription="@string/settings_btn_desc"/>
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/profileImage"
@@ -81,13 +84,13 @@
         app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <Button
-        android:id="@+id/MyQuizzes"
+        android:id="@+id/btnMyQuizzes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_shape"
         android:stateListAnimator="@null"
-        android:text="My Quizzes"
+        android:text="@string/btn_myquiz"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -103,7 +106,7 @@
         android:background="#272727"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/MyQuizzes" />
+        app:layout_constraintTop_toBottomOf="@id/btnMyQuizzes" />
 
     <LinearLayout
         android:id="@+id/InfoBox1"
@@ -121,7 +124,7 @@
             android:id="@+id/InfoNumber1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15"
+            android:text="@string/quizzes_taken_placeholder"
             android:textColor="#FFFFFF"
             android:textSize="35sp"
             android:layout_gravity="center_horizontal"
@@ -132,7 +135,7 @@
             android:id="@+id/InfoText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quizzes Taken"
+            android:text="@string/quizzes_taken"
             android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>
@@ -154,7 +157,7 @@
             android:id="@+id/InfoNumber2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3"
+            android:text="@string/quizzes_created_placeholder"
             android:textColor="#FFFFFF"
             android:textSize="35sp"
             android:layout_gravity="center_horizontal"
@@ -165,7 +168,7 @@
             android:id="@+id/InfoText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quizzes Created"
+            android:text="@string/quizzes_created"
             android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>
@@ -186,7 +189,7 @@
             android:id="@+id/InfoNumber3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2"
+            android:text="@string/courses_taken_placeholder"
             android:textColor="#FFFFFF"
             android:textSize="35sp"
             android:layout_gravity="center_horizontal"
@@ -197,7 +200,7 @@
             android:id="@+id/InfoText3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Courses Taken"
+            android:text="@string/courses_taken"
             android:textColor="#FFFFFF"
             android:textSize="12sp" />
     </LinearLayout>

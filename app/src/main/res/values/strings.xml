@@ -60,4 +60,12 @@
     <string name="my_profile">My profile</string>
     <string name="home">Home</string>
     <string name="create_quiz">Create Quiz</string>
+    <string name="background_image">Background Image</string>
+    <string name="log_out">Log Out</string>
+    <string name="quizzes_taken_placeholder">15</string>
+    <string name="quizzes_taken">Quizzes Taken</string>
+    <string name="quizzes_created_placeholder">3</string>
+    <string name="quizzes_created">Quizzes Created</string>
+    <string name="courses_taken_placeholder">2</string>
+    <string name="courses_taken">Courses Taken</string>
 </resources>
