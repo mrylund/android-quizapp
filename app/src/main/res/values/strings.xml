@@ -53,4 +53,8 @@
     <string name="joinCourseTITLE">Join new course</string>
     <string name="my_courses">My courses</string>
     <string name="separator">Or</string>
+    <string name="my_quizzes_title">My Quizzes</string>
+    <string name="myquizzes_listitem_navn">Quiz Navn</string>
+    <string name="myquizzes_listitem_quizcode">Quiz kode</string>
+    <string name="slet_quiz_knap">Slet quiz knap</string>
 </resources>

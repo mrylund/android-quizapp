@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="15"
-        android:text="Quiz kode"
+        android:text="@string/myquizzes_listitem_quizcode"
         android:id="@+id/code"
         />
 
@@ -18,11 +18,12 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_weight="15"
-        android:text="Quiz Navn"
+        android:text="@string/myquizzes_listitem_navn"
         android:id="@+id/name"
         />
 
     <ImageView
+        android:contentDescription="@string/slet_quiz_knap"
         android:gravity="start"
         android:id="@+id/delete"
         android:layout_width="match_parent"
