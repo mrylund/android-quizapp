@@ -1,14 +1,11 @@
 package com.example.quiz_selvtest.Fragment.my_quizzes;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,31 +20,22 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class MyQuiz extends Fragment {
-    private View view;
+public class MyQuiz extends AppCompatActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Save view in a variable and retrieve the list
-        view = inflater.inflate(R.layout.myquizzes_fragment,container,false);
-        ListView quizListView = view.findViewById(R.id.Quizzes_list);
+        setContentView(R.layout.myquizzes_fragment);
+        ListView quizListView = findViewById(R.id.Quizzes_list);
 
 
         // Get all the quizzes a user has created and make a new ArrayAdapter containing the returned quizzes.
         ArrayList<Quiz> quizzes = getUserQuizzes();
-        QuizAdapter adapter = new QuizAdapter(getActivity(), R.layout.myquizzes_line, quizzes);
+        QuizAdapter adapter = new QuizAdapter(MyQuiz.this, R.layout.myquizzes_line, quizzes);
 
         // Set the list adapter
         quizListView.setAdapter(adapter);
-
-
-        return view;
     }
 
 
@@ -79,8 +67,8 @@ public class MyQuiz extends Fragment {
                     }
 
                     // Update the quiz list with the new information
-                    ListView quizListView = view.findViewById(R.id.Quizzes_list);
-                    QuizAdapter adapter = new QuizAdapter(getActivity(), R.layout.myquizzes_line, finalQuizList);
+                    ListView quizListView = findViewById(R.id.Quizzes_list);
+                    QuizAdapter adapter = new QuizAdapter(MyQuiz.this, R.layout.myquizzes_line, finalQuizList);
                     quizListView.setAdapter(adapter);
                 }
             }

@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.Fragment.my_quizzes.MyQuiz;
+import com.example.quiz_selvtest.Quiz.CreateQuizAct;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,7 +51,8 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getFragmentManager();
                 assert fragmentManager != null;
-                fragmentManager.beginTransaction().replace(R.id.fragment_container,new MyQuiz()).addToBackStack(null).commit();
+                Intent intent = new Intent(getActivity(), MyQuiz.class);
+                startActivity(intent);
             }
         });
 
