@@ -8,7 +8,7 @@
     android:background="@color/background">
 
     <ImageView
-        android:id="@+id/goBackBTN"
+        android:id="@+id/btnGoBack"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/joinAGame"
+        android:id="@+id/txtSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/txt_joincode"
+        android:id="@+id/txtJoinCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -63,10 +63,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joinAGame" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
 
     <Button
-        android:id="@+id/btn_join_quiz"
+        android:id="@+id/btnJoinQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -81,5 +81,5 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_joincode" />
+        app:layout_constraintTop_toBottomOf="@+id/txtJoinCode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

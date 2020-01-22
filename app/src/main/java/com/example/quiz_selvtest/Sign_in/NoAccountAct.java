@@ -34,11 +34,11 @@ public class NoAccountAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_account);
-        ImageView goBackBTN = findViewById(R.id.goBackBTN);
-        Button btnJoin = findViewById(R.id.btn_join_quiz);
-        joinCode = findViewById(R.id.txt_joincode);
+        ImageView btnBack = findViewById(R.id.btnGoBack);
+        Button btnJoin = findViewById(R.id.btnJoinQuiz);
+        joinCode = findViewById(R.id.txtJoinCode);
 
-        goBackBTN.setOnClickListener(new View.OnClickListener() {
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -73,11 +73,12 @@ public class NoAccountAct extends AppCompatActivity {
     };
 
     public void joinQuiz(View v) {
-        /*EditText joinCode = findViewById(R.id.txt_joincode);*/
         joinQuiz(joinCode.getText().toString());
     }
 
     public void joinQuiz(String pw) {
+
+        // Find the quiz linked to the code in the database, then launch the quiz
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference col = db.collection("Quizzes");
         Query query = col.whereEqualTo("ID", pw);
