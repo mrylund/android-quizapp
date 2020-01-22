@@ -52,4 +52,5 @@
     <string name="joinCourseBTN_TXT">Join</string>
     <string name="joinCourseTITLE">Join new course</string>
     <string name="my_courses">My courses</string>
+    <string name="separator">Or</string>
 </resources>

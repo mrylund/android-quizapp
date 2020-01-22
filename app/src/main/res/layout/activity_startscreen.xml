@@ -54,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/studentTeacherBtn" />
 
     <ImageView
+        android:contentDescription="@string/separator"
         android:id="@+id/separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
