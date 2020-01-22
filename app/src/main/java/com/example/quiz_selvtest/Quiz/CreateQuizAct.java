@@ -52,7 +52,7 @@ public class CreateQuizAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_quiz);
 
-        TextView helpBTN = findViewById(R.id.helpBTN);
+        TextView helpBTN = findViewById(R.id.btnHelp);
 
         helpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
