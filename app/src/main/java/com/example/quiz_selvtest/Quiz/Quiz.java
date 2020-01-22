@@ -35,13 +35,13 @@ public class Quiz extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             String status;
-            getIntent();
             String sheetID = intent.getStringExtra("sheet");
             setQuestion("Loading questions");
+
+            // Attempt to load the questions from google sheets
             try {
                 game = new QuizHandler(sheetID);
                 status = "Success";
-                System.out.println(game.getQuestion());
             } catch (IOException | CsvValidationException e) {
                 e.printStackTrace();
                 status = "Fail";
@@ -51,20 +51,9 @@ public class Quiz extends AppCompatActivity {
         }
 
         @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-            switch (values[0]) {
-                case 0: setQuestion("Loading questions"); break;
-                case 1: setQuestion("Loading questions."); break;
-                case 2: setQuestion("Loading questions.."); break;
-                case 3: setQuestion("Loading questions..."); break;
-            }
-        }
-
-        @Override
         protected void onPostExecute(String s) {
             if (s.equals("Success")) {
-                setInfo();
+                setInfo(); // Set the information in the quiz: Questions, answers and correct answers
                 findViewById(R.id.Quiz_question_count).setVisibility(View.VISIBLE);
                 Button answer = findViewById(R.id.btnAnswer);
                 answer.setVisibility(View.VISIBLE);
@@ -75,7 +64,7 @@ public class Quiz extends AppCompatActivity {
                     }
                 });
 
-
+                // Remove the loading animation
                 LottieAnimationView loading = findViewById(R.id.loadingAnim);
                 loading.setVisibility(View.GONE);
             } else {
@@ -88,6 +77,8 @@ public class Quiz extends AppCompatActivity {
     private void setInfo() {
         String q = game.getQuestion();
         List<String> ans = game.getAnswers();
+
+        // Check if at least 2 answers
         if (ans.get(0).equals("") || ans.get(1).equals("")) {
             game.nextQuestion();
             if (game.hasEnded()) {
@@ -97,8 +88,8 @@ public class Quiz extends AppCompatActivity {
             return;
         }
 
+        // Set the current question info text
         String qNum = String.format(getString(R.string.question_number), game.getCurQuestionNum() + 1, game.getQuestionCount());
-
         TextView questionNum = findViewById((R.id.Quiz_question_count));
         questionNum.setText(qNum);
 
@@ -107,16 +98,19 @@ public class Quiz extends AppCompatActivity {
         a3 = false;
         a4 = false;
 
+        // Set all answer possibilities
         int n = 0;
         for (String a : ans) {
             n++;
             setAnswer(n, a);
         }
 
+        // Set the question
         setQuestion(q);
     }
 
     private void pressAnswer(View v, int n) {
+        // Keep track of what buttons are pressed
         switch (n) {
             case 1: a1 = !a1; break;
             case 2: a2 = !a2; break;
@@ -124,21 +118,15 @@ public class Quiz extends AppCompatActivity {
             case 4: a4 = !a4; break;
         }
 
-/*        if (game.checkAnswer(n, false)) {
-            game.addScore();
-        }
-        game.nextQuestion();
-        setInfo();
-
-        if (game.hasEnded()) {
-            endGame();
-        }*/
     }
 
     private void answer() {
+        // Check if all answers are correct, if they are add a point to the total score
         if (game.checkAnswers(a1, a2, a3, a4)) {
             game.addScore();
         }
+
+        // Go to next question and update everything, end the game if no more questions
         game.nextQuestion();
         setInfo();
         if (game.hasEnded()) {
@@ -147,6 +135,7 @@ public class Quiz extends AppCompatActivity {
     }
 
     private void endGame() {
+        // Go to the end activity
         Intent intent = new Intent(this, Quiz_done.class);
         intent.putExtra("game", game);
         startActivity(intent);
@@ -168,10 +157,14 @@ public class Quiz extends AppCompatActivity {
             case 4: btn = findViewById(R.id.Quiz_btn4); break;
         }
         btn.setPressed(false);
+
+        // If the answer has no text, remove the button
         if (a.equals("")) {
             btn.setVisibility(View.GONE);
             return;
         }
+
+        // Make the button visible if it is valid, and update the untouch method
         btn.setVisibility(View.VISIBLE);
         btn.setText(a);
         btn.setOnTouchListener(new View.OnTouchListener() {

@@ -36,8 +36,9 @@ class QuizHandler implements Serializable {
         questionsNew = new ArrayList<>();
 
         String[] line;
+        // Loop through the document and make question objects from the lines. When no more lines break the loop.
         while ((line = reader.readNext()) != null) {
-            if (line[1].equals("")) break;
+            if (line[1].equals("")) break; // If the question field is empty, quit the while loop.
             String question = line[1];
             List<String> answers = new ArrayList<>();
 
@@ -47,7 +48,6 @@ class QuizHandler implements Serializable {
                 }
             }
 
-            //String[] answers = {line[2], line[3], line[4], line[5]};
             int tid = Integer.parseInt(line[6]);
             String[] correctString = line[7].split(",");
             int[] correct = new int[correctString.length];
@@ -63,6 +63,8 @@ class QuizHandler implements Serializable {
     boolean checkAnswers(boolean a1, boolean a2, boolean a3, boolean a4) {
         boolean allCorrect;
         boolean ca1 = false, ca2 = false, ca3 = false, ca4 = false;
+
+        // Set the correct answers for the variables
         for (int n : questionsNew.get(curQuestion).getCorrectAnswers()) {
          switch (n) {
              case 1: ca1 = true; break;
@@ -72,11 +74,7 @@ class QuizHandler implements Serializable {
          }
         }
 
-        System.out.println(a1 +  " : " + ca1 + "\n" +
-                a2 +  " : " + ca2 + "\n" +
-                a3 +  " : " + ca3 + "\n" +
-                a4 +  " : " + ca4 + "\n\n\n");
-
+        // Check if any answers are incorrect, if any answer is incorrect allCorrect will be false
         allCorrect = a1 == ca1;
         if (allCorrect) {
             allCorrect = a2 == ca2;
@@ -87,7 +85,6 @@ class QuizHandler implements Serializable {
         if (allCorrect) {
             allCorrect = a4 == ca4;
         }
-
 
 
         return allCorrect;

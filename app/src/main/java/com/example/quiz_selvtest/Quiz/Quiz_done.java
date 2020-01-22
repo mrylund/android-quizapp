@@ -21,6 +21,7 @@ public class Quiz_done extends AppCompatActivity {
         setInfo();
     }
 
+    // Get the game object and set all the info in the page
     public void setInfo() {
         QuizHandler game = (QuizHandler) intent.getSerializableExtra("game");
         assert game != null;
