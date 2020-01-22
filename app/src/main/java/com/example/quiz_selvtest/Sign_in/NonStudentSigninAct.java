@@ -42,6 +42,12 @@ public class NonStudentSigninAct extends AppCompatActivity {
         TextView register = findViewById(R.id.registerTextView2);
         TextView forgotpw = findViewById(R.id.forgotPWTextView2);
 
+        EditText usernameET = findViewById(R.id.userName);
+        EditText passwordET = findViewById(R.id.password);
+        usernameET.setText("test@test.dk");
+        passwordET.setText("test123");
+
+
         goBackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
