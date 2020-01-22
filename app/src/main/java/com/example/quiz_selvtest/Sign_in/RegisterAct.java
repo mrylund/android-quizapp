@@ -3,14 +3,10 @@ package com.example.quiz_selvtest.Sign_in;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quiz_selvtest.Activity.StartScreenAct;
-import com.example.quiz_selvtest.Fragment.FragmentController;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,11 +38,11 @@ public class RegisterAct extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        final EditText emailToValidate = findViewById(R.id.registerMail);
-        final EditText passwordToRegister = findViewById(R.id.registerPassword);
-        final EditText passwordToConfirm = findViewById(R.id.repeatPassword);
-        ImageView goBack = findViewById(R.id.goBackBTN);
-        final Button register = findViewById(R.id.registerButton);
+        final EditText emailToValidate = findViewById(R.id.txtMail);
+        final EditText passwordToRegister = findViewById(R.id.txtPassword);
+        final EditText passwordToConfirm = findViewById(R.id.txtRepeatPassword);
+        ImageView goBack = findViewById(R.id.btnGoBack);
+        final Button register = findViewById(R.id.btnRegister);
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,13 +57,14 @@ public class RegisterAct extends AppCompatActivity {
                 String email = emailToValidate.getText().toString().trim();
                 String password = passwordToRegister.getText().toString().trim();
                 String passwordConfirm = passwordToConfirm.getText().toString().trim();
-                //Hello
-                // TODO: 1/17/2020  Database kald til at tjekke om userName og email allerede eksistere i databasen
+
+                // Check if it is an email matching the regex and if any password has been entered
                 if(!email.matches(emailPattern) || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
                     initCustomDialog("UH-OH! Error in field!","Please verify your inputs, and try again!");
                     return;
                 }
 
+                // Check if the password and repeat password matches
                 if(!password.matches(passwordConfirm)){
                     initCustomDialog("UH-OH! Password differs!","The passwords you have typed in, do not match each other");
                 }else{
@@ -83,6 +78,7 @@ public class RegisterAct extends AppCompatActivity {
     public void createUser(String email, String password) {
 
         // Inspireret af: https://firebase.google.com/docs/auth/android/start/
+        // Create the user in the database and run the doUserRegistered method
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

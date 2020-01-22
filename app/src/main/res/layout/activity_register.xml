@@ -8,7 +8,7 @@
     tools:context=".Sign_in.RegisterAct">
 
     <ImageView
-        android:id="@+id/goBackBTN"
+        android:id="@+id/btnGoBack"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/register"
+        android:id="@+id/txtSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -44,13 +44,14 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/registerMail"
+        android:id="@+id/txtMail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="100dp"
         android:ems="10"
+        android:importantForAutofill="no"
         android:gravity="center"
         android:hint="@string/registerHintMail"
         android:background="@drawable/button_shape"
@@ -59,17 +60,18 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
 
 
     <EditText
-        android:id="@+id/registerPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:background="@drawable/button_shape"
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
+        android:importantForAutofill="no"
         android:ems="10"
         android:gravity="center"
         android:hint="@string/registerHintPassword"
@@ -78,12 +80,13 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerMail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMail" />
 
     <EditText
-        android:id="@+id/repeatPassword"
+        android:id="@+id/txtRepeatPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:importantForAutofill="no"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="25dp"
@@ -96,10 +99,10 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -113,6 +116,6 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/repeatPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtRepeatPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
