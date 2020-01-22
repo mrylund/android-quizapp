@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
         android:id="@+id/your_profile"
-        android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Your profile"/>
+        android:icon="@drawable/profile"
+        android:title="@string/my_profile"
+        />
 
     <item
         android:id="@+id/Home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="Home"
+        android:icon="@drawable/homelogo"
+        android:title="@string/home"
         />
     <item
         android:id="@+id/courses"
-        android:icon="@drawable/burgermenu"
-        android:title="My courses"/>
+        android:icon="@drawable/books"
+        android:title="@string/my_courses"
+        />
 </menu>

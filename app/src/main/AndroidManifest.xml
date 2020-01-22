@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.quiz_selvtest">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -11,23 +12,48 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Quiz"></activity>
-        <activity android:name=".FragmentController" />
-        <activity android:name=".NoAccountAct" />
-        <activity android:name=".Quiz_done" />
-        <activity android:name=".RegisterAct" />
-        <activity android:name=".NonStudentSigninAct" />
-        <activity android:name=".CreateQuizAct" />
-        <activity android:name=".StudentSigninAct" />
-        <activity android:name=".SettingsAct" />
-        <activity android:name=".ProfileAct" />
-        <activity android:name=".StartScreenAct">
+        <activity android:name=".Fragment.my_quizzes.MyQuiz" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Sign_in.ForgotPWAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Quiz.Quiz"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Quiz.CreateQuizAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fragment.FragmentController"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sign_in.NoAccountAct"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Quiz.Quiz_done" />
+        <activity
+            android:name=".Sign_in.RegisterAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sign_in.NonStudentSigninAct"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sign_in.StudentSigninAct"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Quiz.HelpAct" android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Activity.StartScreenAct"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Sign_in.RegisterUserInfo"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -6,7 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily">@font/patrick_hand</item>
+        <item name="android:fontFamily">@font/verdana</item>
+        <item name="buttonStyle">@style/CustomButton</item>
+        <item name="android:navigationBarColor">#000000</item>
+
+    </style>
+
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_shape</item>
+        <item name="android:showAsAction">ifRoom</item>
     </style>
 
 </resources>

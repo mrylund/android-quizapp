@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/test_back"
+        android:contentDescription="@string/background_image" />
+
+    <View
+        android:id="@+id/shade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="#070707"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-63dp" />
+
+    <ImageView
+        android:id="@+id/logOut"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="17dp"
+        android:scaleX="-1"
+        android:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sign_out"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="@string/log_out"/>
+
+    <ImageView
+        android:id="@+id/Settings"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:tint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settings"
+        android:contentDescription="@string/settings_btn_desc"/>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/profileImage"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/avatar3"
+        app:civ_border="true"
+        app:civ_border_color="#FFFFFF"
+        app:civ_border_width="2dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="#3f51b5"
+        app:civ_shadow_radius="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+    <Button
+        android:id="@+id/btnMyQuizzes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:stateListAnimator="@null"
+        android:text="@string/btn_myquiz"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
+
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="200dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="30dp"
+        android:alpha="0.6"
+        android:background="#272727"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMyQuizzes" />
+
+    <LinearLayout
+        android:id="@+id/InfoBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/separator"
+        app:layout_constraintRight_toLeftOf="@id/InfoBox2"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:id="@+id/InfoNumber1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes_taken_placeholder"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/InfoText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes_taken"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/InfoBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/separator"
+        android:layout_marginTop="35dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/InfoNumber2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes_created_placeholder"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/InfoText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quizzes_created"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/InfoBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="25dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/separator"
+        app:layout_constraintLeft_toRightOf="@id/InfoBox2"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:id="@+id/InfoNumber3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/courses_taken_placeholder"
+            android:textColor="#FFFFFF"
+            android:textSize="35sp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/InfoText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/courses_taken"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

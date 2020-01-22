@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fået inspiration herfra, og bruges til at konfigurere iconer og text i buttomnav-->
+<!--https://stackoverflow.com/questions/43386768/how-to-change-text-padding-in-android-bottom-navigation-view-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">10sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">15sp</dimen>
+    <dimen name="design_bottom_navigation_height" tools:override="true">65dp</dimen>
+</resources>

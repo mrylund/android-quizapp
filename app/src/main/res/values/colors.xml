@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
     <color name="colorAccent">#D81B60</color>
     <color name="background">#D1DBED</color>
+    <color name="navigationBarColor">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="green">#47bf3f</color>
+    <color name="darkGreen">#2f9c27</color>
+    <color name="black">#000000</color>
+    <color name="gray">#bfbfbf</color>
+    <color name="dark">#404040</color>
+    <color name="darkGrey">#4d4d4d</color>
+    <color name="logoColor">#91a8d4</color>
+    <color name="submit">#d1ede3</color>
+    <color name="yellow">#FF0</color>
+    <color name="btnPressed">#b3b3b3</color>
+
 </resources>

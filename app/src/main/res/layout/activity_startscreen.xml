@@ -5,118 +5,126 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D1DBED"
-    tools:context=".StartScreenAct"
+    tools:context=".Activity.StartScreenAct">
 
-
-    >
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="#FFFFFF"
-        android:stateListAnimator="@null"
-        android:text="@string/startscreenbutton1"
-        android:textAllCaps="false"
-        android:textSize="35sp"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/greyscale"
+        android:textColor="@color/logoColor"
+        android:text="@string/logo"
+        android:textSize="70sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/startscreenbutton2"
+        android:id="@+id/studentTeacherBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="15dp"
         android:layout_marginEnd="40dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/patrick_hand"
+        android:layout_marginStart="40dp"
+
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_shape"
+        android:stateListAnimator="@null"
+        android:text="@string/startscreenbutton1"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <Button
+        android:id="@+id/nonStudentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
         android:stateListAnimator="@null"
         android:text="@string/startscreenbutton2"
         android:textAllCaps="false"
-        android:textSize="35sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/startscreenbutton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="200dp"
-        android:backgroundTint="#FFFFFF"
-        android:stateListAnimator="@null"
-        android:text="@string/startscreenbutton3"
-        android:textAllCaps="false"
-        android:textSize="35sp"
-        android:onClick="playWithoutAccount"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/studentTeacherBtn" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:contentDescription="@string/separator"
+        android:id="@+id/separator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/quiz" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/startscreenbutton3"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startscreenbutton2"
+        app:layout_constraintTop_toBottomOf="@+id/nonStudentBtn"
         app:srcCompat="@drawable/separator" />
 
+    <Button
+        android:id="@+id/noAccountBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_shape"
+        android:onClick="playWithoutAccount"
+        android:stateListAnimator="@null"
+        android:text="@string/startscreenbutton3"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator" />
+
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/noAccountTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="138dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/roboto"
         android:text="@string/noaccount"
         android:textColor="#000000"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/registerTextView"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/registerTxt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noAccountBtn" />
 
     <TextView
-        android:id="@+id/registerTextView"
+        android:id="@+id/registerTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="77dp"
-        android:layout_marginBottom="138dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/roboto"
         android:text="@string/registerbutton"
         android:textColor="#00A3FF"
         android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/noAccountTxt"
+        app:layout_constraintTop_toBottomOf="@+id/noAccountBtn" />
+
+    <TextView
+        android:id="@+id/forgotPWTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/forgotPWbutton"
+        android:textColor="#00A3FF"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noAccountTxt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

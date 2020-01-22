@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <TextView
+        android:gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="15"
+        android:text="@string/myquizzes_listitem_quizcode"
+        android:id="@+id/code"
+        />
+
+    <TextView
+        android:gravity="start"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="15"
+        android:text="@string/myquizzes_listitem_navn"
+        android:id="@+id/name"
+        />
+
+    <ImageView
+        android:contentDescription="@string/slet_quiz_knap"
+        android:gravity="start"
+        android:id="@+id/delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/mr_dialog_close_light"
+        android:backgroundTint="#FF0000"/>
+
+
+</LinearLayout>
