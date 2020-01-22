@@ -8,7 +8,7 @@
     tools:context=".Sign_in.NonStudentSigninAct">
 
     <ImageView
-        android:id="@+id/goBackBTN"
+        android:id="@+id/btnGoBack"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -19,8 +19,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:fontFamily="@font/greyscale"
+        android:text="@string/logo"
+        android:textColor="@color/logoColor"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txtSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/screenlabelsignin"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
     <EditText
-        android:id="@+id/userName"
+        android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -36,10 +63,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSubtitle" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -55,10 +82,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSignin"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -72,35 +99,12 @@
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+
 
     <TextView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:fontFamily="@font/greyscale"
-        android:text="@string/logo"
-        android:textColor="@color/logoColor"
-        android:textSize="70sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/screenlabelsignin"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCreateQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -109,14 +113,14 @@
         android:text="@string/noaccount"
         android:textColor="#000000"
         android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/registerTextView2"
+        app:layout_constraintEnd_toStartOf="@+id/txtRegister"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
 
     <TextView
-        android:id="@+id/registerTextView2"
+        android:id="@+id/txtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -126,11 +130,11 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/txtCreateQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
 
     <TextView
-        android:id="@+id/forgotPWTextView2"
+        android:id="@+id/txtForgotPW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -140,5 +144,5 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCreateQuiz" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.quiz_selvtest.Fragment.FragmentController;
-import com.example.quiz_selvtest.Activity.StartScreenAct;
 import com.example.quiz_selvtest.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -37,13 +36,15 @@ public class NonStudentSigninAct extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        ImageView goBackBTN = findViewById(R.id.goBackBTN);
-        Button signIn = findViewById(R.id.button2);
-        TextView register = findViewById(R.id.registerTextView2);
-        TextView forgotpw = findViewById(R.id.forgotPWTextView2);
+        ImageView goBackBTN = findViewById(R.id.btnGoBack);
+        Button signIn = findViewById(R.id.btnSignin);
+        TextView register = findViewById(R.id.txtRegister);
+        TextView forgotpw = findViewById(R.id.txtForgotPW);
 
-        EditText usernameET = findViewById(R.id.userName);
-        EditText passwordET = findViewById(R.id.password);
+        EditText usernameET = findViewById(R.id.txtUsername);
+        EditText passwordET = findViewById(R.id.txtPassword);
+
+
         usernameET.setText("test@test.dk");
         passwordET.setText("test123");
 
@@ -58,12 +59,12 @@ public class NonStudentSigninAct extends AppCompatActivity {
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(NonStudentSigninAct.this, FragmentController.class));
-                EditText usernameET = findViewById(R.id.userName);
-                EditText passwordET = findViewById(R.id.password);
+                EditText usernameET = findViewById(R.id.txtUsername);
+                EditText passwordET = findViewById(R.id.txtPassword);
                 String username = usernameET.getText().toString();
                 String password = passwordET.getText().toString();
 
+                // Check if both username and password has been entered
                 if (!username.equals("") && !password.equals("")) {
                     signIn(username, password);
                 }else{
@@ -90,6 +91,7 @@ public class NonStudentSigninAct extends AppCompatActivity {
     public void signIn(String email, String password) {
 
         // Inspireret af: https://firebase.google.com/docs/auth/android/start/
+        // Sign the user in with the given email and password
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -99,7 +101,7 @@ public class NonStudentSigninAct extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(NonStudentSigninAct.this, "Authentication Success!",
                             Toast.LENGTH_SHORT).show();
-                    checkIfUserHasInfo();
+                    checkIfUserHasInfo(); // Check if the user has already entered Username and Language
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -111,6 +113,8 @@ public class NonStudentSigninAct extends AppCompatActivity {
     }
 
     public void checkIfUserHasInfo() {
+        // Check if user has entered any info when they registered.
+        // If no info has been found, take them to the registerInfo screen, else take them to the home screen
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             DocumentReference userInfo = FirebaseFirestore.getInstance().collection("Users").document(currentUser.getUid());
