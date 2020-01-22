@@ -26,6 +26,7 @@
         android:layout_marginTop="75dp"
         android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
         android:ems="10"
+        android:importantForAutofill="no"
         android:background="@drawable/button_shape"
         android:foregroundTint="@color/background"
         android:gravity="center"
