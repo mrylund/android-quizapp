@@ -8,7 +8,7 @@
     tools:context=".Sign_in.RegisterAct">
 
     <ImageView
-        android:id="@+id/goBackBTN"
+        android:id="@+id/btnGoBack"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_gravity="start"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/quiz_desc"
+        android:id="@+id/txtSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/forgotpwMail"
+        android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
@@ -54,15 +54,15 @@
         android:gravity="center"
         android:hint="@string/registerHintMail"
         android:background="@drawable/button_shape"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:textColor="#000000"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quiz_desc" />
+        app:layout_constraintTop_toBottomOf="@+id/txtSubTitle" />
 
     <Button
-        android:id="@+id/submitForgotButton"
+        android:id="@+id/btnSubmit"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
@@ -76,11 +76,11 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotpwMail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/completeAnimation"
+        android:id="@+id/animSuccess"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="false"
