@@ -45,7 +45,7 @@ public class StartScreenAct extends AppCompatActivity {
 
         Button button = findViewById(R.id.startscreenbutton2);
         Button button2 = findViewById(R.id.button);
-        TextView register = findViewById(R.id.registerTextView);
+        TextView register = findViewById(R.id.registerTxt);
         TextView forgotpw = findViewById(R.id.forgotPWTextView);
 
         button2.setOnClickListener(new View.OnClickListener() {
