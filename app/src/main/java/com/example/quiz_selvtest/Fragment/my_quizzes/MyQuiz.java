@@ -1,6 +1,8 @@
 package com.example.quiz_selvtest.Fragment.my_quizzes;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +30,14 @@ public class MyQuiz extends AppCompatActivity {
         // Save view in a variable and retrieve the list
         setContentView(R.layout.myquizzes_fragment);
         ListView quizListView = findViewById(R.id.Quizzes_list);
+        ImageView goBackBTN = findViewById(R.id.btnGoBack);
+
+        goBackBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         // Get all the quizzes a user has created and make a new ArrayAdapter containing the returned quizzes.

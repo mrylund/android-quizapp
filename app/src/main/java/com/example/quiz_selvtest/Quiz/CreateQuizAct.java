@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,11 +54,18 @@ public class CreateQuizAct extends AppCompatActivity {
         setContentView(R.layout.activity_create_quiz);
 
         TextView helpBTN = findViewById(R.id.btnHelp);
+        ImageView goBackBTN = findViewById(R.id.btnGoBack);
 
         helpBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CreateQuizAct.this, HelpAct.class));
+            }
+        });
+        goBackBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
 
