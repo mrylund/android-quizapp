@@ -3,8 +3,11 @@ package com.example.quiz_selvtest.Sign_in;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,8 +28,19 @@ public class RegisterUserInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user_info);
+        EditText languageET = findViewById(R.id.txtLanguage);
+        languageET.setOnEditorActionListener(editorActionListener);
     }
 
+    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                registerInfo(v);
+            }
+            return true;
+        }
+    };
 
     public void registerInfo(View v) {
         EditText usernameET = findViewById(R.id.txtUsername);
