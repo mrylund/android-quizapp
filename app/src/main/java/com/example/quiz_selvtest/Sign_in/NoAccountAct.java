@@ -60,13 +60,8 @@ public class NoAccountAct extends AppCompatActivity {
     private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
         @Override
         public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            switch(actionId){
-                case EditorInfo.IME_ACTION_NEXT:
-                    joinQuiz(joinCode.getText().toString());
-                    break;
-                case EditorInfo.IME_ACTION_GO:
-                    joinQuiz(joinCode.getText().toString());
-                    break;
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                joinQuiz(joinCode.getText().toString());
             }
             return true;
         }
