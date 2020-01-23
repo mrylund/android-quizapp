@@ -69,6 +69,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtURL"
         />
+    <ImageView
+        android:id="@+id/btnGoBack"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:contentDescription="@string/back_btn_desc"
+        android:src="@drawable/back_button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/btnHelp"
