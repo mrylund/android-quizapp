@@ -78,6 +78,7 @@
         android:hint="@string/signinhint2"
         android:inputType="textPassword"
         android:textColor="#000000"
+        android:imeOptions="actionGo"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -104,7 +105,7 @@
 
 
     <TextView
-        android:id="@+id/txtCreateQuiz"
+        android:id="@+id/noAccountTxtSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -130,7 +131,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/txtCreateQuiz"
+        app:layout_constraintStart_toEndOf="@+id/noAccountTxtSignIn"
         app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
 
     <TextView
@@ -144,5 +145,5 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCreateQuiz" />
+        app:layout_constraintTop_toBottomOf="@+id/noAccountTxtSignIn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,6 +45,8 @@ public class NonStudentSigninAct extends AppCompatActivity {
 
         EditText usernameET = findViewById(R.id.txtUsername);
         EditText passwordET = findViewById(R.id.txtPassword);
+
+        passwordET.setOnEditorActionListener(editorActionListener);
 
 
         usernameET.setText("test@test.dk");
@@ -88,6 +92,16 @@ public class NonStudentSigninAct extends AppCompatActivity {
         });
     }
 
+    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                authentication();
+            }
+            return true;
+        }
+    };
+
     public void signIn(String email, String password) {
 
         // Inspireret af: https://firebase.google.com/docs/auth/android/start/
@@ -110,6 +124,21 @@ public class NonStudentSigninAct extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void authentication(){
+        EditText usernameET = findViewById(R.id.txtUsername);
+        EditText passwordET = findViewById(R.id.txtPassword);
+        String username = usernameET.getText().toString();
+        String password = passwordET.getText().toString();
+
+        // Check if both username and password has been entered
+        if (!username.equals("") && !password.equals("")) {
+            signIn(username, password);
+        }else{
+            Toast.makeText(NonStudentSigninAct.this, "Fill out the info, and try again.",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void checkIfUserHasInfo() {
