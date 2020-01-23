@@ -29,12 +29,12 @@ public class StartScreenAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_startscreen);
 
         // Initialize Firebase Authentication
         mAuth = FirebaseAuth.getInstance();
 
-
-        setContentView(R.layout.activity_startscreen);
+        authUser();
 
         // Find objects and save them in variables, then define the onClick methods
         Button btnNonStudent = findViewById(R.id.nonStudentBtn);
@@ -72,8 +72,7 @@ public class StartScreenAct extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart() {
+    public void authUser() {
         super.onStart();
         // Check if  a user is signed in (user object Not-null)
         FirebaseUser currentUser = mAuth.getCurrentUser();

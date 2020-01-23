@@ -75,6 +75,7 @@
         android:layout_marginTop="25dp"
         android:importantForAutofill="no"
         android:ems="10"
+        android:imeOptions="actionGo"
         android:gravity="center"
         android:inputType="textPersonName"
         android:textColor="#000000"

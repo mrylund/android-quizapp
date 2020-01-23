@@ -8,7 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -51,28 +53,47 @@ public class RegisterAct extends AppCompatActivity {
             }
         });
 
+        passwordToConfirm.setOnEditorActionListener(editorActionListener);
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailToValidate.getText().toString().trim();
-                String password = passwordToRegister.getText().toString().trim();
-                String passwordConfirm = passwordToConfirm.getText().toString().trim();
-
-                // Check if it is an email matching the regex and if any password has been entered
-                if(!email.matches(emailPattern) || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
-                    initCustomDialog("UH-OH! Error in field!","Please verify your inputs, and try again!");
-                    return;
-                }
-
-                // Check if the password and repeat password matches
-                if(!password.matches(passwordConfirm)){
-                    initCustomDialog("UH-OH! Password differs!","The passwords you have typed in, do not match each other");
-                }else{
-                    createUser(email, password);
-                }
-
+                authentication();
             }
         });
+    }
+
+    private TextView.OnEditorActionListener editorActionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+               authentication();
+            }
+            return true;
+        }
+    };
+
+    public void authentication(){
+        final EditText emailToValidate = findViewById(R.id.txtMail);
+        final EditText passwordToRegister = findViewById(R.id.txtPassword);
+        final EditText passwordToConfirm = findViewById(R.id.txtRepeatPassword);
+
+        String email = emailToValidate.getText().toString().trim();
+        String password = passwordToRegister.getText().toString().trim();
+        String passwordConfirm = passwordToConfirm.getText().toString().trim();
+
+        // Check if it is an email matching the regex and if any password has been entered
+        if(!email.matches(emailPattern) || email.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty() ){
+            initCustomDialog("UH-OH! Error in field!","Please verify your inputs, and try again!");
+            return;
+        }
+
+        // Check if the password and repeat password matches
+        if(!password.matches(passwordConfirm)){
+            initCustomDialog("UH-OH! Password differs!","The passwords you have typed in, do not match each other");
+        }else{
+            createUser(email, password);
+        }
     }
 
     public void createUser(String email, String password) {

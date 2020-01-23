@@ -59,6 +59,7 @@
     <string name="question_number">%d of %d</string>
     <string name="logo">QUIZR</string>
     <string name="courseIDTXT">Course ID</string>
+    <string name="courseNotImplemented">Sorry! This feature has not yet been implemented</string>
     <string name="joinCourseBTN_TXT">Join</string>
     <string name="joinCourseTITLE">Join new course</string>
     <string name="my_courses">My courses</string>
