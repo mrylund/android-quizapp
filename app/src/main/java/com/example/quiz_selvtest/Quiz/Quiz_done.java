@@ -37,8 +37,9 @@ public class Quiz_done extends AppCompatActivity {
 
 
     public void quizEnd(View view) {
-        Intent intent = new Intent(this, StartScreenAct.class);
+        finish();
+/*        Intent intent = new Intent(this, StartScreenAct.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }
