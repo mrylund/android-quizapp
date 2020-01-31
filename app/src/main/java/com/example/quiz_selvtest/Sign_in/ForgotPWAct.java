@@ -51,6 +51,7 @@ public class ForgotPWAct extends AppCompatActivity {
         if (!emailAddress.matches(emailPattern)) {
             Toast.makeText(ForgotPWAct.this, "This is not a valid email!",
                     Toast.LENGTH_LONG).show();
+            return;  // hop ud så sendPasswordResetEmail() ikke bliver kaldt, ellers crasher den ved f.eks et tomt felt
         }
 
         // If the email exist, send them a reset password email

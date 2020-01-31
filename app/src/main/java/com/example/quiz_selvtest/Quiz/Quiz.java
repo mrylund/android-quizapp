@@ -28,6 +28,7 @@ public class Quiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         intent = getIntent();
+        setQuestion("Loading questions");
         new StartQuiz().execute("");
     }
 
@@ -36,7 +37,7 @@ public class Quiz extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String status;
             String sheetID = intent.getStringExtra("sheet");
-            setQuestion("Loading questions");
+            //setQuestion("Loading questions");// Jacob: I må ikke opdatere brugergrænsefladen fra en baggrundstråd
 
             // Attempt to load the questions from google sheets
             try {
